@@ -1,0 +1,606 @@
+[
+  {
+    "id": "canadaindie-music-blog",
+    "title": "CanadaIndie.com",
+    "summary": "Music blog platform covering Canadian independent music scene with content aggregation, social media integration, and SEO optimization.",
+    "description": "WordPress-based music blog featuring custom theme development, Facebook API integration, and RSS content aggregation. Covered Polaris Music Prize and Canadian indie music from 2009-2011.",
+
+    "status": "archive",
+
+    "timeline": {
+      "start_year": 2009,
+      "end_year": 2011,
+      "confidence": "high"
+    },
+
+    "role": {
+      "title": "Web Developer",
+      "capacity": "solo",
+      "notes": "Full development and content management"
+    },
+
+    "organization": {
+      "client": "",
+      "employer": "",
+      "context": "personal"
+    },
+
+    "project_type": [
+      "website",
+      "platform"
+    ],
+
+    "tech": {
+      "languages": ["PHP", "JavaScript", "MySQL"],
+      "frameworks": ["WordPress 3.x"],
+      "platforms": ["LAMP"],
+      "tools": [],
+      "cms": ["WordPress"],
+      "confidence": "confirmed"
+    },
+
+    "responsibilities": [
+      "Custom WordPress theme development",
+      "Plugin integration and configuration",
+      "Facebook API integration",
+      "SEO implementation",
+      "Content management system setup"
+    ],
+
+    "deliverables": [
+      "Custom WordPress theme (indieblog)",
+      "Social media integration",
+      "RSS aggregation system",
+      "SEO-optimized blog platform"
+    ],
+
+    "constraints": [],
+
+    "outcomes": [
+      "Covered Canadian independent music scene 2009-2011",
+      "Integrated Polaris Music Prize coverage"
+    ],
+
+    "artifacts": {
+      "code_paths": [
+        "/archive/canadaindie.com/",
+        "/archive/canadaindie.com/wp-content/themes/indieblog/"
+      ],
+      "screenshots": [],
+      "documents": [],
+      "media": [
+        "/archive/canadaindie.com/wp-content/uploads/2009/",
+        "/archive/canadaindie.com/wp-content/uploads/2010/"
+      ]
+    },
+
+    "links": {
+      "live_site": "",
+      "github": "",
+      "archive": "canadaindie.ca"
+    },
+
+    "evidence": {
+      "filesystem": true,
+      "linkedin": false,
+      "github": false,
+      "memory": true
+    },
+
+    "confidence_score": 0.95,
+    "notes": "Complete WordPress installation with custom theme, plugins, and upload archives from 2009-2010. Facebook integration directory present."
+  },
+  {
+    "id": "ingredient-sync-strapi",
+    "title": "Ingredient Sync",
+    "summary": "Headless CMS platform built with Strapi for ingredient and recipe data synchronization, featuring modern JavaScript stack with React and Redux.",
+    "description": "Full-stack application using Strapi 4.x as a headless CMS for managing ingredient and recipe data. Includes complete development environment with build pipeline, database configuration, and API development.",
+
+    "status": "archive",
+
+    "timeline": {
+      "start_year": 2021,
+      "end_year": 2022,
+      "confidence": "high"
+    },
+
+    "role": {
+      "title": "Full-Stack Developer",
+      "capacity": "solo",
+      "notes": "Complete application architecture and development"
+    },
+
+    "organization": {
+      "client": "",
+      "employer": "",
+      "context": "personal"
+    },
+
+    "project_type": [
+      "web-application",
+      "platform"
+    ],
+
+    "tech": {
+      "languages": ["JavaScript", "TypeScript", "Node.js"],
+      "frameworks": ["Strapi 4.x", "React", "Redux Toolkit"],
+      "platforms": ["Node.js"],
+      "tools": ["Webpack", "Vite", "Rollup", "Git", "ESLint"],
+      "cms": ["Strapi"],
+      "confidence": "confirmed"
+    },
+
+    "responsibilities": [
+      "Strapi CMS configuration and setup",
+      "API development and content modeling",
+      "Database schema design",
+      "Build pipeline configuration",
+      "Development environment setup"
+    ],
+
+    "deliverables": [
+      "Headless CMS API",
+      "Content type models",
+      "Build and deployment pipeline",
+      "Development environment configuration"
+    ],
+
+    "constraints": [],
+
+    "outcomes": [],
+
+    "artifacts": {
+      "code_paths": [
+        "/archive/ingredient-sync/"
+      ],
+      "screenshots": [],
+      "documents": [],
+      "media": []
+    },
+
+    "links": {
+      "live_site": "",
+      "github": "",
+      "archive": ""
+    },
+
+    "evidence": {
+      "filesystem": true,
+      "linkedin": false,
+      "github": true,
+      "memory": true
+    },
+
+    "confidence_score": 0.98,
+    "notes": "Complete git repository with package.json, environment configuration, and full Strapi installation. Modern JavaScript stack with comprehensive build tooling."
+  },
+  {
+    "id": "meaghanbent-blog",
+    "title": "Blog.MeaghanBent.com",
+    "summary": "Personal WordPress blog with extensive theme collection and multi-year content archive spanning 2011-2015.",
+    "description": "WordPress-based personal blog featuring multiple theme iterations and consistent content publishing over four years.",
+
+    "status": "archive",
+
+    "timeline": {
+      "start_year": 2011,
+      "end_year": 2015,
+      "confidence": "high"
+    },
+
+    "role": {
+      "title": "Web Developer",
+      "capacity": "solo",
+      "notes": "Development and maintenance for client"
+    },
+
+    "organization": {
+      "client": "Meaghan Bent",
+      "employer": "",
+      "context": "contract"
+    },
+
+    "project_type": [
+      "website"
+    ],
+
+    "tech": {
+      "languages": ["PHP", "JavaScript", "MySQL"],
+      "frameworks": ["WordPress"],
+      "platforms": ["LAMP"],
+      "tools": [],
+      "cms": ["WordPress"],
+      "confidence": "confirmed"
+    },
+
+    "responsibilities": [
+      "WordPress installation and configuration",
+      "Theme customization and updates",
+      "Long-term platform maintenance",
+      "Content management support"
+    ],
+
+    "deliverables": [
+      "WordPress blog platform",
+      "Multiple theme iterations",
+      "Content migration support"
+    ],
+
+    "constraints": [],
+
+    "outcomes": [
+      "Four years of continuous blog operation",
+      "Regular theme updates and customization"
+    ],
+
+    "artifacts": {
+      "code_paths": [
+        "/archive/blog.meaghanbent.com.old/"
+      ],
+      "screenshots": [],
+      "documents": [],
+      "media": [
+        "/archive/blog.meaghanbent.com.old/wp-content/uploads/2011/",
+        "/archive/blog.meaghanbent.com.old/wp-content/uploads/2015/"
+      ]
+    },
+
+    "links": {
+      "live_site": "",
+      "github": "",
+      "archive": ""
+    },
+
+    "evidence": {
+      "filesystem": true,
+      "linkedin": false,
+      "github": false,
+      "memory": true
+    },
+
+    "confidence_score": 0.90,
+    "notes": "WordPress installation with seven different themes and upload archives from 2011-2015 indicating active long-term maintenance."
+  },
+  {
+    "id": "dbldnm-website",
+    "title": "DBLDNM.com",
+    "summary": "WordPress website featuring Jetpack integration and custom Imbalance2 theme.",
+    "description": "WordPress-based website with Jetpack plugin integration and custom theme development.",
+
+    "status": "archive",
+
+    "timeline": {
+      "start_year": 2012,
+      "end_year": null,
+      "confidence": "medium"
+    },
+
+    "role": {
+      "title": "Web Developer",
+      "capacity": "solo",
+      "notes": ""
+    },
+
+    "organization": {
+      "client": "",
+      "employer": "",
+      "context": "personal"
+    },
+
+    "project_type": [
+      "website"
+    ],
+
+    "tech": {
+      "languages": ["PHP", "JavaScript", "MySQL"],
+      "frameworks": ["WordPress"],
+      "platforms": ["LAMP"],
+      "tools": [],
+      "cms": ["WordPress"],
+      "confidence": "confirmed"
+    },
+
+    "responsibilities": [
+      "WordPress theme customization",
+      "Plugin configuration",
+      "Site maintenance"
+    ],
+
+    "deliverables": [
+      "WordPress website",
+      "Jetpack integration"
+    ],
+
+    "constraints": [],
+
+    "outcomes": [],
+
+    "artifacts": {
+      "code_paths": [
+        "/archive/dbldnm.com/"
+      ],
+      "screenshots": [],
+      "documents": [],
+      "media": [
+        "/archive/dbldnm.com/wp-content/uploads/2012/"
+      ]
+    },
+
+    "links": {
+      "live_site": "",
+      "github": "",
+      "archive": ""
+    },
+
+    "evidence": {
+      "filesystem": true,
+      "linkedin": false,
+      "github": false,
+      "memory": true
+    },
+
+    "confidence_score": 0.85,
+    "notes": "WordPress wp-content directory with Jetpack plugin and Imbalance2 theme. Upload directory from 2012."
+  },
+  {
+    "id": "beourguest-events",
+    "title": "BeOurGuestEvents.ca",
+    "summary": "WordPress-based event website using Twenty Sixteen theme.",
+    "description": "Event website built on WordPress platform with standard theme configuration.",
+
+    "status": "archive",
+
+    "timeline": {
+      "start_year": 2015,
+      "end_year": 2015,
+      "confidence": "medium"
+    },
+
+    "role": {
+      "title": "Web Developer",
+      "capacity": "solo",
+      "notes": ""
+    },
+
+    "organization": {
+      "client": "Be Our Guest Events",
+      "employer": "",
+      "context": "contract"
+    },
+
+    "project_type": [
+      "website"
+    ],
+
+    "tech": {
+      "languages": ["PHP", "JavaScript", "MySQL"],
+      "frameworks": ["WordPress"],
+      "platforms": ["LAMP"],
+      "tools": [],
+      "cms": ["WordPress"],
+      "confidence": "confirmed"
+    },
+
+    "responsibilities": [
+      "WordPress installation and setup",
+      "Theme configuration",
+      "Event content management"
+    ],
+
+    "deliverables": [
+      "Event website",
+      "WordPress platform"
+    ],
+
+    "constraints": [],
+
+    "outcomes": [],
+
+    "artifacts": {
+      "code_paths": [
+        "/archive/beourguestevents.ca.old/"
+      ],
+      "screenshots": [],
+      "documents": [],
+      "media": [
+        "/archive/beourguestevents.ca.old/wp-content/uploads/2015/"
+      ]
+    },
+
+    "links": {
+      "live_site": "",
+      "github": "",
+      "archive": ""
+    },
+
+    "evidence": {
+      "filesystem": true,
+      "linkedin": false,
+      "github": false,
+      "memory": true
+    },
+
+    "confidence_score": 0.88,
+    "notes": "WordPress wp-content directory with Twenty Sixteen theme and 2015 uploads directory."
+  },
+  {
+    "id": "john-howard-guide",
+    "title": "John Howard Society Guide",
+    "summary": "Educational guide platform for the John Howard Society of Ontario featuring custom content management and accessibility compliance.",
+    "description": "Web application providing educational resources and guidance for the John Howard Society. Featured as a case study on The Variables Co. portfolio with emphasis on accessibility and user-centered design.",
+
+    "status": "portfolio",
+
+    "timeline": {
+      "start_year": 2020,
+      "end_year": 2022,
+      "confidence": "high"
+    },
+
+    "role": {
+      "title": "Lead Developer",
+      "capacity": "lead",
+      "notes": "The Variables Co. client project"
+    },
+
+    "organization": {
+      "client": "John Howard Society of Ontario",
+      "employer": "The Variables Co.",
+      "context": "contract"
+    },
+
+    "project_type": [
+      "web-application",
+      "platform"
+    ],
+
+    "tech": {
+      "languages": [],
+      "frameworks": [],
+      "platforms": [],
+      "tools": [],
+      "cms": [],
+      "confidence": "inferred"
+    },
+
+    "responsibilities": [
+      "Custom application development",
+      "Accessibility compliance implementation",
+      "Content management system",
+      "User experience design"
+    ],
+
+    "deliverables": [
+      "Educational guide platform",
+      "Accessible web interface",
+      "Content management tools"
+    ],
+
+    "constraints": [
+      "Strict accessibility requirements",
+      "Nonprofit sector context"
+    ],
+
+    "outcomes": [
+      "Improved access to educational resources",
+      "AODA compliance achieved"
+    ],
+
+    "artifacts": {
+      "code_paths": [],
+      "screenshots": [],
+      "documents": [
+        "/work-john-howard.html"
+      ],
+      "media": []
+    },
+
+    "links": {
+      "live_site": "guide.johnhoward.on.ca",
+      "github": "",
+      "archive": ""
+    },
+
+    "evidence": {
+      "filesystem": false,
+      "linkedin": false,
+      "github": false,
+      "memory": true
+    },
+
+    "confidence_score": 0.92,
+    "notes": "Active live site with case study documentation on thevariables.com. Confirmed client project from The Variables Co. portfolio."
+  },
+  {
+    "id": "thevariables-website",
+    "title": "The Variables Co. Website",
+    "summary": "Static website for digital consultancy featuring editorial-inspired design, scroll animations, and Web3Forms integration.",
+    "description": "Company website built as a pure frontend static site with custom build system for environment variable injection. Features four detailed client case studies and contact form integration.",
+
+    "status": "portfolio",
+
+    "timeline": {
+      "start_year": 2024,
+      "end_year": null,
+      "confidence": "high"
+    },
+
+    "role": {
+      "title": "Web Developer",
+      "capacity": "solo",
+      "notes": "Current active development"
+    },
+
+    "organization": {
+      "client": "",
+      "employer": "The Variables Co.",
+      "context": "full-time"
+    },
+
+    "project_type": [
+      "website"
+    ],
+
+    "tech": {
+      "languages": ["JavaScript", "HTML", "CSS", "Node.js"],
+      "frameworks": [],
+      "platforms": ["Static hosting"],
+      "tools": ["Git", "Web3Forms API"],
+      "cms": [],
+      "confidence": "confirmed"
+    },
+
+    "responsibilities": [
+      "Custom build system development",
+      "Frontend development (HTML, CSS, JavaScript)",
+      "Form integration with Web3Forms",
+      "Scroll animations and parallax effects",
+      "Case study content development"
+    ],
+
+    "deliverables": [
+      "Company website",
+      "Build and deployment system",
+      "Client case studies",
+      "Contact form integration"
+    ],
+
+    "constraints": [
+      "No backend required",
+      "Static hosting only"
+    ],
+
+    "outcomes": [
+      "Professional digital consultancy presence",
+      "Portfolio showcase for client work"
+    ],
+
+    "artifacts": {
+      "code_paths": [
+        "/Users/lakewood/Sites/apps/thevariables-claude/"
+      ],
+      "screenshots": [],
+      "documents": [
+        "/CLAUDE.md",
+        "/documentation/DEPLOYMENT.md"
+      ],
+      "media": []
+    },
+
+    "links": {
+      "live_site": "thevariables.com",
+      "github": "",
+      "archive": ""
+    },
+
+    "evidence": {
+      "filesystem": true,
+      "linkedin": false,
+      "github": true,
+      "memory": true
+    },
+
+    "confidence_score": 1.00,
+    "notes": "Current active project with complete filesystem, documentation, and git repository. Includes case studies for Little Red Coffee, John Howard Society, Circular Materials, and GOCACTUS."
+  }
+]

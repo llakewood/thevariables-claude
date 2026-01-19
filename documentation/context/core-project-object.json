@@ -1,0 +1,89 @@
+{
+  "id": "slug-or-hash",
+  "title": "Project Name",
+  "summary": "1–2 sentence human-readable overview",
+  "description": "Expanded description (optional)",
+
+  "status": "portfolio | archive | deprecated | experiment",
+
+  "timeline": {
+    "start_year": 2012,
+    "end_year": 2014,
+    "confidence": "high | medium | low"
+  },
+
+  "role": {
+    "title": "Senior Web Developer",
+    "capacity": "lead | contributor | consultant | solo",
+    "notes": ""
+  },
+
+  "organization": {
+    "client": "Client Name",
+    "employer": "Agency / Company",
+    "context": "contract | full-time | personal"
+  },
+
+  "project_type": [
+    "website",
+    "web-application",
+    "platform",
+    "internal-tool",
+    "experiment"
+  ],
+
+  "tech": {
+    "languages": ["PHP", "JavaScript"],
+    "frameworks": ["WordPress", "React"],
+    "platforms": ["LAMP", "AWS"],
+    "tools": ["Git", "Docker"],
+    "cms": ["WordPress"],
+    "confidence": "inferred | confirmed"
+  },
+
+  "responsibilities": [
+    "Architecture",
+    "Custom plugin development",
+    "Accessibility compliance"
+  ],
+
+  "deliverables": [
+    "Custom CMS",
+    "Public-facing website",
+    "Admin tooling"
+  ],
+
+  "constraints": [
+    "Legacy platform",
+    "Strict accessibility requirements"
+  ],
+
+  "outcomes": [
+    "Improved content management",
+    "Reduced maintenance burden"
+  ],
+
+  "artifacts": {
+    "code_paths": [],
+    "screenshots": [],
+    "documents": [],
+    "media": []
+  },
+
+  "links": {
+    "live_site": "",
+    "github": "",
+    "archive": ""
+  },
+
+  "evidence": {
+    "filesystem": true,
+    "linkedin": false,
+    "github": false,
+    "memory": true
+  },
+
+  "confidence_score": 0.0,
+  "notes": ""
+}
+

@@ -1,0 +1,18 @@
+│   │       ├── class-wp-http-ixr-client.php
+│   │   │   ├── client
+│   │   │   ├── class-wp-http-ixr-client.php
+│   │   │   └── client
+│   │   │   │   ├── client.js
+│   │   │   │   ├── broadcastQueryClient-experimental
+│   │   │   │   ├── persistQueryClient-experimental
+│   │   │   │   ├── client.d.ts
+│   │   │   │   ├── mock-client.d.ts
+│   │   │   │   ├── client.d.ts
+│   │   │   │   ├── client-overlay.js
+│   │   │   │   ├── client.js
+│   │   │   ├── class-wp-http-ixr-client.php
+│   │   │   │   ├── class-IXR-client.php
+│   │   │   │   ├── class-IXR-clientmulticall.php
+│       │   │   ├── client.d.ts
+│       │   │   ├── mock-client.d.ts
+├── clients

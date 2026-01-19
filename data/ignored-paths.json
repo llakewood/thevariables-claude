@@ -1,0 +1,99 @@
+{
+  "ignored_categories": {
+    "vendor_dependencies": [
+      "/archive/*/node_modules/",
+      "/archive/*/bower_components/",
+      "/archive/*/vendor/",
+      "/archive/*/.git/objects/",
+      "/archive/*/.strapi/",
+      "/archive/*/build/",
+      "/archive/*/dist/"
+    ],
+    "system_files": [
+      "/archive/*/.DS_Store",
+      "/archive/*/.env",
+      "/archive/*/.gitignore",
+      "/archive/*/.editorconfig",
+      "/archive/*/.eslintrc*",
+      "/archive/*/package-lock.json",
+      "/archive/*/yarn.lock"
+    ],
+    "cache_temp": [
+      "/archive/*/.tmp/",
+      "/archive/*/cache/",
+      "/archive/*/tmp/",
+      "/archive/*/.cache/"
+    ],
+    "wordpress_core": [
+      "/archive/*/wp-admin/",
+      "/archive/*/wp-includes/"
+    ],
+    "wordpress_standard_plugins": [
+      "/archive/*/wp-content/plugins/akismet/",
+      "/archive/*/wp-content/plugins/hello.php"
+    ],
+    "incomplete_fragments": [
+      "Paths without sufficient context or parent directory information",
+      "Single files without project structure",
+      "Orphaned configuration files"
+    ]
+  },
+  "noise_patterns": {
+    "description": "Patterns that indicate files to ignore during analysis",
+    "patterns": [
+      "node_modules/**/*",
+      "bower_components/**/*",
+      ".git/objects/**/*",
+      "*.log",
+      "*.cache",
+      ".DS_Store",
+      "Thumbs.db",
+      "*.min.js (without source)",
+      "*.min.css (without source)"
+    ]
+  },
+  "analysis_notes": {
+    "total_filesystem_lines": 14132,
+    "vendor_dependency_percentage_estimate": "~60%",
+    "wordpress_core_percentage_estimate": "~20%",
+    "actual_project_code_percentage_estimate": "~20%",
+    "reasoning": "Large portions of tree.txt are node_modules dependencies, WordPress core files, and build artifacts. Project-specific code is a minority of total filesystem."
+  },
+  "excluded_from_portfolio": {
+    "reason": "No filesystem evidence or insufficient data",
+    "items": [
+      {
+        "url": "coderdojo.ca",
+        "note": "Active site but no filesystem archive found"
+      },
+      {
+        "url": "littleredcoffee.ca",
+        "note": "Active site with case study but no filesystem archive"
+      },
+      {
+        "url": "niagaraqueerarchive.ca",
+        "note": "Active site but no filesystem archive found"
+      },
+      {
+        "url": "lauramoore.ca",
+        "note": "Active site but no filesystem archive found"
+      },
+      {
+        "url": "wornertcouture.ca",
+        "note": "Active site but no filesystem archive found"
+      },
+      {
+        "url": "bucketsof.com",
+        "note": "Active site but no filesystem archive found"
+      },
+      {
+        "url": "gocactus.com",
+        "note": "Active site with case study but no filesystem archive"
+      },
+      {
+        "url": "themorals.ca",
+        "note": "Archival URL, no filesystem evidence"
+      }
+    ]
+  }
+}

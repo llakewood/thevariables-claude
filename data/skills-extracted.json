@@ -1,0 +1,309 @@
+[
+  {
+    "skill": "WordPress",
+    "category": "CMS",
+    "projects": [
+      "canadaindie-music-blog",
+      "meaghanbent-blog",
+      "dbldnm-website",
+      "beourguest-events"
+    ],
+    "years_active_estimate": 6,
+    "confidence": "high",
+    "era": "2009-2015",
+    "proficiency": "Expert",
+    "evidence": [
+      "Custom theme development",
+      "Plugin integration and configuration",
+      "Multi-site maintenance",
+      "Long-term platform management (4+ years)"
+    ]
+  },
+  {
+    "skill": "PHP",
+    "category": "Language",
+    "projects": [
+      "canadaindie-music-blog",
+      "meaghanbent-blog",
+      "dbldnm-website",
+      "beourguest-events",
+      "londonindie-switchpodcast"
+    ],
+    "years_active_estimate": 10,
+    "confidence": "high",
+    "era": "2009-2019",
+    "proficiency": "Advanced",
+    "evidence": [
+      "WordPress theme/plugin development",
+      "Custom PHP applications",
+      "Database integration"
+    ]
+  },
+  {
+    "skill": "JavaScript",
+    "category": "Language",
+    "projects": [
+      "canadaindie-music-blog",
+      "ingredient-sync-strapi",
+      "svelte-portfolio-app",
+      "thevariables-website"
+    ],
+    "years_active_estimate": 17,
+    "confidence": "high",
+    "era": "2009-present",
+    "proficiency": "Expert",
+    "evidence": [
+      "Frontend interactivity",
+      "Modern ES6+ development",
+      "Framework development (React, Svelte)",
+      "Build tooling configuration"
+    ]
+  },
+  {
+    "skill": "Node.js",
+    "category": "Platform",
+    "projects": [
+      "ingredient-sync-strapi",
+      "thevariables-website"
+    ],
+    "years_active_estimate": 5,
+    "confidence": "high",
+    "era": "2020-present",
+    "proficiency": "Advanced",
+    "evidence": [
+      "Backend API development",
+      "Build script development",
+      "NPM package management"
+    ]
+  },
+  {
+    "skill": "React",
+    "category": "Language",
+    "projects": [
+      "ingredient-sync-strapi"
+    ],
+    "years_active_estimate": 3,
+    "confidence": "high",
+    "era": "2021-2024",
+    "proficiency": "Advanced",
+    "evidence": [
+      "Component development",
+      "State management with Redux",
+      "Modern hooks patterns"
+    ]
+  },
+  {
+    "skill": "Svelte",
+    "category": "Language",
+    "projects": [
+      "svelte-portfolio-app"
+    ],
+    "years_active_estimate": 2,
+    "confidence": "medium",
+    "era": "2020-2022",
+    "proficiency": "Intermediate",
+    "evidence": [
+      "Component library development",
+      "Rollup configuration",
+      "Interactive UI development"
+    ]
+  },
+  {
+    "skill": "Strapi",
+    "category": "CMS",
+    "projects": [
+      "ingredient-sync-strapi"
+    ],
+    "years_active_estimate": 2,
+    "confidence": "high",
+    "era": "2021-2023",
+    "proficiency": "Advanced",
+    "evidence": [
+      "Headless CMS architecture",
+      "Content modeling",
+      "API development",
+      "Database schema design"
+    ]
+  },
+  {
+    "skill": "MySQL",
+    "category": "Platform",
+    "projects": [
+      "canadaindie-music-blog",
+      "meaghanbent-blog",
+      "dbldnm-website",
+      "beourguest-events"
+    ],
+    "years_active_estimate": 8,
+    "confidence": "high",
+    "era": "2009-2017",
+    "proficiency": "Advanced",
+    "evidence": [
+      "WordPress database management",
+      "Schema design",
+      "Query optimization"
+    ]
+  },
+  {
+    "skill": "Git",
+    "category": "Practice",
+    "projects": [
+      "ingredient-sync-strapi",
+      "thevariables-website"
+    ],
+    "years_active_estimate": 10,
+    "confidence": "high",
+    "era": "2014-present",
+    "proficiency": "Advanced",
+    "evidence": [
+      "Version control",
+      "Repository management",
+      "Branching strategies"
+    ]
+  },
+  {
+    "skill": "LAMP Stack",
+    "category": "Platform",
+    "projects": [
+      "canadaindie-music-blog",
+      "meaghanbent-blog",
+      "dbldnm-website",
+      "beourguest-events"
+    ],
+    "years_active_estimate": 8,
+    "confidence": "high",
+    "era": "2009-2017",
+    "proficiency": "Advanced",
+    "evidence": [
+      "Server configuration",
+      "Apache hosting",
+      "Linux administration"
+    ]
+  },
+  {
+    "skill": "Webpack",
+    "category": "Practice",
+    "projects": [
+      "ingredient-sync-strapi"
+    ],
+    "years_active_estimate": 3,
+    "confidence": "high",
+    "era": "2021-2024",
+    "proficiency": "Intermediate",
+    "evidence": [
+      "Build configuration",
+      "Module bundling",
+      "Development environment setup"
+    ]
+  },
+  {
+    "skill": "Vite",
+    "category": "Practice",
+    "projects": [
+      "ingredient-sync-strapi"
+    ],
+    "years_active_estimate": 2,
+    "confidence": "high",
+    "era": "2021-2023",
+    "proficiency": "Intermediate",
+    "evidence": [
+      "Modern build tooling",
+      "Development server configuration"
+    ]
+  },
+  {
+    "skill": "Rollup",
+    "category": "Practice",
+    "projects": [
+      "ingredient-sync-strapi",
+      "svelte-portfolio-app"
+    ],
+    "years_active_estimate": 3,
+    "confidence": "medium",
+    "era": "2020-2023",
+    "proficiency": "Intermediate",
+    "evidence": [
+      "Bundle configuration",
+      "Svelte integration"
+    ]
+  },
+  {
+    "skill": "Redux",
+    "category": "Practice",
+    "projects": [
+      "ingredient-sync-strapi"
+    ],
+    "years_active_estimate": 2,
+    "confidence": "high",
+    "era": "2021-2023",
+    "proficiency": "Intermediate",
+    "evidence": [
+      "State management",
+      "Redux Toolkit usage"
+    ]
+  },
+  {
+    "skill": "SEO",
+    "category": "Practice",
+    "projects": [
+      "canadaindie-music-blog"
+    ],
+    "years_active_estimate": 15,
+    "confidence": "medium",
+    "era": "2009-2024",
+    "proficiency": "Advanced",
+    "evidence": [
+      "All-in-One SEO Pack integration",
+      "Content optimization",
+      "Meta management"
+    ]
+  },
+  {
+    "skill": "Social Media Integration",
+    "category": "Practice",
+    "projects": [
+      "canadaindie-music-blog"
+    ],
+    "years_active_estimate": 12,
+    "confidence": "medium",
+    "era": "2009-2021",
+    "proficiency": "Intermediate",
+    "evidence": [
+      "Facebook API integration",
+      "Social sharing plugins (Tweetmeme)",
+      "Content syndication"
+    ]
+  },
+  {
+    "skill": "Accessibility Compliance",
+    "category": "Practice",
+    "projects": [
+      "john-howard-guide"
+    ],
+    "years_active_estimate": 5,
+    "confidence": "high",
+    "era": "2019-2024",
+    "proficiency": "Advanced",
+    "evidence": [
+      "AODA compliance",
+      "Accessible web design",
+      "User-centered design"
+    ]
+  },
+  {
+    "skill": "Static Site Generation",
+    "category": "Practice",
+    "projects": [
+      "thevariables-website"
+    ],
+    "years_active_estimate": 2,
+    "confidence": "high",
+    "era": "2023-present",
+    "proficiency": "Advanced",
+    "evidence": [
+      "Custom build systems",
+      "Environment variable injection",
+      "Deployment optimization"
+    ]
+  }
+]

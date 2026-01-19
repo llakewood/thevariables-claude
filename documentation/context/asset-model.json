@@ -1,0 +1,10 @@
+{
+  "asset_id": "",
+  "project_id": "",
+  "type": "screenshot | diagram | photo | video",
+  "source_path": "",
+  "caption": "",
+  "year_estimate": "",
+  "confidence": "high | medium | low"
+}
+

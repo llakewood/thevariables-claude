@@ -1,0 +1,187 @@
+{
+  "summary": {
+    "total_candidates": 10,
+    "high_confidence": 7,
+    "medium_confidence": 3,
+    "total_portfolio": 2,
+    "total_archive": 5,
+    "analysis_date": "2026-01-19"
+  },
+  "projects": [
+    {
+      "project_id": "canadaindie-music-blog",
+      "title": "CanadaIndie.com",
+      "confidence_score": 0.95,
+      "timeline": "2009-2011",
+      "tech_stack": "WordPress 3.x, PHP, MySQL",
+      "recommended_action": "archive",
+      "has_filesystem": true,
+      "has_live_url": false
+    },
+    {
+      "project_id": "ingredient-sync-strapi",
+      "title": "Ingredient Sync",
+      "confidence_score": 0.98,
+      "timeline": "2021-2022",
+      "tech_stack": "Strapi 4.x, React, Redux, Node.js",
+      "recommended_action": "archive",
+      "has_filesystem": true,
+      "has_live_url": false
+    },
+    {
+      "project_id": "meaghanbent-blog",
+      "title": "Blog.MeaghanBent.com",
+      "confidence_score": 0.90,
+      "timeline": "2011-2015",
+      "tech_stack": "WordPress, PHP, MySQL",
+      "recommended_action": "archive",
+      "has_filesystem": true,
+      "has_live_url": false
+    },
+    {
+      "project_id": "dbldnm-website",
+      "title": "DBLDNM.com",
+      "confidence_score": 0.85,
+      "timeline": "2012+",
+      "tech_stack": "WordPress, PHP, MySQL",
+      "recommended_action": "archive",
+      "has_filesystem": true,
+      "has_live_url": false
+    },
+    {
+      "project_id": "beourguest-events",
+      "title": "BeOurGuestEvents.ca",
+      "confidence_score": 0.88,
+      "timeline": "2015",
+      "tech_stack": "WordPress, PHP, MySQL",
+      "recommended_action": "archive",
+      "has_filesystem": true,
+      "has_live_url": false
+    },
+    {
+      "project_id": "john-howard-guide",
+      "title": "John Howard Society Guide",
+      "confidence_score": 0.92,
+      "timeline": "2020-2022",
+      "tech_stack": "Web application (inferred)",
+      "recommended_action": "feature",
+      "has_filesystem": false,
+      "has_live_url": true
+    },
+    {
+      "project_id": "thevariables-website",
+      "title": "The Variables Co. Website",
+      "confidence_score": 1.00,
+      "timeline": "2024-present",
+      "tech_stack": "HTML, CSS, JavaScript, Node.js",
+      "recommended_action": "feature",
+      "has_filesystem": true,
+      "has_live_url": true
+    },
+    {
+      "project_id": "svelte-portfolio-app",
+      "title": "Svelte Portfolio/Application",
+      "confidence_score": 0.75,
+      "timeline": "2020-2022",
+      "tech_stack": "Svelte, Rollup, TSParticles",
+      "recommended_action": "archive",
+      "has_filesystem": true,
+      "has_live_url": false
+    },
+    {
+      "project_id": "londonindie-switchpodcast",
+      "title": "LondonIndie.ca / SwitchPodcast.ca",
+      "confidence_score": 0.65,
+      "timeline": "Unknown",
+      "tech_stack": "PHP",
+      "recommended_action": "archive",
+      "has_filesystem": false,
+      "has_live_url": false
+    },
+    {
+      "project_id": "n3rdal3rt-chipchat",
+      "title": "N3rdal3rt.ca / ChipChat.ca",
+      "confidence_score": 0.60,
+      "timeline": "Unknown",
+      "tech_stack": "WordPress, BBpress, PodPress",
+      "recommended_action": "archive",
+      "has_filesystem": false,
+      "has_live_url": false
+    }
+  ],
+  "recommendations": {
+    "feature_in_portfolio": [
+      "john-howard-guide",
+      "thevariables-website"
+    ],
+    "archive_only": [
+      "canadaindie-music-blog",
+      "ingredient-sync-strapi",
+      "meaghanbent-blog",
+      "dbldnm-website",
+      "beourguest-events",
+      "svelte-portfolio-app",
+      "londonindie-switchpodcast",
+      "n3rdal3rt-chipchat"
+    ],
+    "needs_investigation": [
+      "svelte-portfolio-app"
+    ]
+  },
+  "technology_summary": {
+    "wordpress_era": {
+      "years": "2009-2015",
+      "project_count": 4,
+      "projects": ["canadaindie-music-blog", "meaghanbent-blog", "dbldnm-website", "beourguest-events"]
+    },
+    "modern_js_era": {
+      "years": "2020-2022",
+      "project_count": 2,
+      "projects": ["ingredient-sync-strapi", "svelte-portfolio-app"]
+    },
+    "current_era": {
+      "years": "2024-present",
+      "project_count": 1,
+      "projects": ["thevariables-website"]
+    }
+  },
+  "live_sites_without_filesystem": [
+    {
+      "url": "coderdojo.ca",
+      "status": "active",
+      "filesystem_evidence": false
+    },
+    {
+      "url": "littleredcoffee.ca",
+      "status": "active",
+      "filesystem_evidence": false,
+      "has_case_study": true
+    },
+    {
+      "url": "niagaraqueerarchive.ca",
+      "status": "active",
+      "filesystem_evidence": false
+    },
+    {
+      "url": "lauramoore.ca",
+      "status": "active",
+      "filesystem_evidence": false
+    },
+    {
+      "url": "wornertcouture.ca",
+      "status": "active",
+      "filesystem_evidence": false
+    },
+    {
+      "url": "bucketsof.com",
+      "status": "active",
+      "filesystem_evidence": false
+    },
+    {
+      "url": "gocactus.com",
+      "status": "active",
+      "filesystem_evidence": false,
+      "has_case_study": true
+    }
+  ]
+}

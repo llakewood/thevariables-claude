@@ -1,0 +1,30 @@
+# Project Context
+
+## URLS
+
+### Active
+- thevariables.com
+- coderdojo.ca
+- littleredcoffee.ca
+- niagaraqueerarchive.ca
+- guide.johnhoward.on.ca
+- lauramoore.ca
+- wornertcouture.ca
+- bucketsof.com
+- gocactus.com
+
+### Archival
+- n3rdal3rt.ca (BBpress)
+- chipchat.ca (PodPress)
+- switchpodcast.ca
+- londonindie.ca (php)
+- canadaindie.ca (php)
+- themorals.ca
+
+## Directory Tree
+/Users/lakewood/Sites/archive/tree.text
+
+## Profiles
+- linkedin: https://www.linkedin.com/in/lakewood/
+- github: https://github.com/llakewood
+- stackoverflow: https://stackoverflow.com/users/994397/lakewood

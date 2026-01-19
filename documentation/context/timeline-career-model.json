@@ -1,0 +1,70 @@
+{
+  "employment_id": "slug-or-hash",
+  "organization": {
+    "name": "Company/Agency Name",
+    "type": "agency | startup | enterprise | nonprofit | education | self-employed",
+    "industry": "digital-agency | healthcare | education | technology | media",
+    "location": "City, Province/State"
+  },
+
+  "timeline": {
+    "start_date": "2012-03",
+    "end_date": "2014-06",
+    "is_current": false,
+    "confidence": "high | medium | low"
+  },
+
+  "role": {
+    "title": "Senior Web Developer",
+    "level": "junior | intermediate | senior | lead | principal | director",
+    "employment_type": "full-time | contract | freelance | co-founder"
+  },
+
+  "responsibilities": [
+    "Led development team of 4 developers",
+    "Architected custom WordPress solutions",
+    "Client-facing technical consulting"
+  ],
+
+  "key_projects": [
+    "project-id-1",
+    "project-id-2"
+  ],
+
+  "tech_focus": {
+    "primary": ["WordPress", "PHP", "JavaScript"],
+    "secondary": ["MySQL", "Apache", "Git"],
+    "emerging": ["React", "Node.js"]
+  },
+
+  "team": {
+    "size_estimate": "5-10 | 10-25 | 25-50 | 50+",
+    "role_context": "Individual contributor | Team lead | Department head"
+  },
+
+  "achievements": [
+    "Reduced client onboarding time by 40%",
+    "Established coding standards for agency"
+  ],
+
+  "transitions": {
+    "reason_for_leaving": "Growth opportunity | Relocation | Company closure | Founded own business",
+    "next_role": "employment-id-2"
+  },
+
+  "evidence": {
+    "linkedin": true,
+    "filesystem": true,
+    "references": false,
+    "memory": true
+  },
+
+  "links": {
+    "company_website": "",
+    "linkedin_company": "",
+    "archive": ""
+  },
+
+  "confidence_score": 0.0,
+  "notes": ""
+}
