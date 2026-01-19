@@ -4,7 +4,9 @@
   "description": "The Variables Co. - Digital Strategists website",
   "scripts": {
     "build": "node build.js",
-    "dev": "node build.js && npx http-server -p 8080 -o",
+    "build:archive": "node build-archive.js",
+    "build:all": "node build.js && node build-archive.js",
+    "dev": "npm run build:all && npx http-server -p 8080 -o",
     "serve": "npx http-server -p 8080 -o"
   },
   "keywords": [

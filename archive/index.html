@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="The Variables Co. Career Archive - 20 years of software development projects, technologies, and expertise.">
+    <title>Career Archive | The Variables Co.</title>
+
+    <!-- Styles -->
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/archive.css">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="../favicon.png">
+</head>
+<body data-page="archive" data-base-path="../">
+    <!-- Header Component (injected by components.js) -->
+    <div id="header-container"></div>
+
+    <!-- Archive Hero Section -->
+    <section class="archive-hero">
+        <div class="container">
+            <div class="archive-hero-content">
+                <h1 class="archive-hero-title">Career Archive</h1>
+                <p class="archive-hero-subtitle">
+                    Two decades of software development, from early WordPress sites to modern web applications.
+                    Explore projects, technologies, and the evolution of digital craftsmanship.
+                </p>
+                <div class="archive-hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">7</span>
+                        <span class="stat-label">Projects</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">18</span>
+                        <span class="stat-label">Technologies</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">17</span>
+                        <span class="stat-label">Years</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Archive Navigation -->
+    <nav class="archive-nav">
+        <div class="container">
+            <div class="archive-nav-links">
+                <a href="index.html" class="archive-nav-link active">Projects</a>
+                <a href="timeline.html" class="archive-nav-link">Timeline</a>
+                <a href="skills.html" class="archive-nav-link">Skills</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Filter Controls -->
+    <section class="archive-filters">
+        <div class="container">
+            <div class="filter-group">
+                <label for="search" class="filter-label">Search</label>
+                <input
+                    type="text"
+                    id="search"
+                    class="filter-search"
+                    placeholder="Search projects..."
+                    aria-label="Search projects">
+            </div>
+
+            <div class="filter-group">
+                <label for="tech-filter" class="filter-label">Technology</label>
+                <select id="tech-filter" class="filter-select" aria-label="Filter by technology">
+                    <option value="">All Technologies</option>
+                    <option value="WordPress">WordPress</option>
+                    <option value="React">React</option>
+                    <option value="Strapi">Strapi</option>
+                    <option value="Node.js">Node.js</option>
+                    <option value="Static">Static Site</option>
+                </select>
+            </div>
+
+            <div class="filter-group">
+                <label for="year-filter" class="filter-label">Year</label>
+                <select id="year-filter" class="filter-select" aria-label="Filter by year">
+                    <option value="">All Years</option>
+                    <option value="2024">2024+</option>
+                    <option value="2020">2020-2023</option>
+                    <option value="2015">2015-2019</option>
+                    <option value="2010">2010-2014</option>
+                    <option value="2009">2009</option>
+                </select>
+            </div>
+
+            <button id="reset-filters" class="filter-reset" aria-label="Reset all filters">
+                Reset Filters
+            </button>
+        </div>
+    </section>
+
+    <!-- Project Grid -->
+    <section class="archive-grid">
+        <div class="container">
+            <div id="project-grid" class="project-grid">
+                <!-- Projects will be rendered here by JavaScript -->
+            </div>
+
+            <div id="no-results" class="no-results" style="display: none;">
+                <p>No projects found matching your criteria.</p>
+                <button id="reset-from-empty" class="btn btn-secondary">Reset Filters</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Detail Modal (rendered dynamically) -->
+    <div id="project-modal" class="project-modal" style="display: none;" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <div class="modal-overlay"></div>
+        <div class="modal-content">
+            <button class="modal-close" aria-label="Close project details">&times;</button>
+            <div id="modal-body">
+                <!-- Modal content will be rendered here by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Component (injected by components.js) -->
+    <div id="footer-container"></div>
+
+    <!-- Archive Data (inline for fast render) -->
+    <script>
+        // Embed project data
+        window.archiveData = {
+            projects: [],  // Will be populated from data/portfolio-projects.json
+            skills: []     // Will be populated from data/skills-extracted.json
+        };
+    </script>
+
+    <!-- Scripts -->
+    <script src="../js/components.js" defer></script>
+    <script src="../js/archive.js" defer></script>
+</body>
+</html>

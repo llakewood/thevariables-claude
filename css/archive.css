@@ -1,0 +1,55 @@
+/**
+ * Archive Styles
+ * The Variables Co. - Career Archive Pages
+ * 
+ * This file contains styles specific to archive pages:
+ * - /archive/index.html (project grid)
+ * - /archive/timeline.html (career timeline)
+ * - /archive/skills.html (skills showcase)
+ * 
+ * Created: 2026-01-19
+ */
+
+/* ============================================
+   ARCHIVE HERO
+   ============================================ */
+
+/* TODO: Add archive hero styles */
+
+/* ============================================
+   ARCHIVE PROJECT CARDS
+   ============================================ */
+
+/* TODO: Add project card styles */
+
+/* ============================================
+   ARCHIVE FILTERS
+   ============================================ */
+
+/* TODO: Add filter control styles */
+
+/* ============================================
+   PROJECT DETAIL MODAL
+   ============================================ */
+
+/* TODO: Add modal/detail panel styles */
+
+/* ============================================
+   TIMELINE COMPONENT
+   ============================================ */
+
+/* TODO: Add timeline visualization styles */
+
+/* ============================================
+   SKILLS GRID
+   ============================================ */
+
+/* TODO: Add skills grid and card styles */
+
+/* ============================================
+   RESPONSIVE: MOBILE
+   ============================================ */
+
+@media (max-width: 768px) {
+    /* TODO: Add mobile responsive styles */
+}

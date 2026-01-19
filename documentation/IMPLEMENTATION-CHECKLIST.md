@@ -27,95 +27,114 @@
 
 ---
 
-## Phase 1: Foundation (Week 1)
+## Phase 0: Global Components (Week 1, Days 1-2)
 
-### Directory Structure Setup
+### PRIORITY: Component System Setup
 
-#### Task 1.1: Create Data Directory
-```bash
-mkdir -p data
-```
+**Goal:** Replace hardcoded navigation/footer with reusable components and add mobile menu
 
-- [ ] Create `/data/` directory
-- [ ] Move `documentation/portfolio-projects.json` → `data/portfolio-projects.json`
-- [ ] Move `documentation/project-summary.json` → `data/project-summary.json`
-- [ ] Move `documentation/skills-extracted.json` → `data/skills-extracted.json`
-- [ ] Create `data/README.md` documenting data structure
-- [ ] Update `.gitignore` to ensure data files are tracked
+**Reference:** [COMPONENTS-GLOBAL.md](COMPONENTS-GLOBAL.md)
 
-**Verification:**
-```bash
-ls -la data/
-# Should show: portfolio-projects.json, project-summary.json, skills-extracted.json, README.md
-```
+---
 
-#### Task 1.2: Create Archive Directory
-```bash
-mkdir -p archive
-```
+#### Task 0.1: Create Component JavaScript
 
-- [ ] Create `/archive/` directory
-- [ ] Create placeholder `archive/index.html` (empty with TODO comment)
-- [ ] Create placeholder `archive/timeline.html`
-- [ ] Create placeholder `archive/skills.html`
+**File:** `js/components.js` (NEW)
 
-#### Task 1.3: Create Asset Directories
-```bash
-touch css/archive.css
-touch js/archive.js
-```
+- [ ] Create `js/components.js`
+- [ ] Implement `Header` class with mobile menu
+- [ ] Implement `Footer` class
+- [ ] Add auto-initialization on DOMContentLoaded
+- [ ] Export classes to window for manual use
 
-- [ ] Create `css/archive.css` with header comment + TODOs
-- [ ] Create `js/archive.js` with header comment + TODOs
+**Code:** Copy full implementation from [COMPONENTS-GLOBAL.md Section 1](COMPONENTS-GLOBAL.md#1-header-component-with-mobile-nav)
 
-### Navigation Updates
+#### Task 0.2: Add Mobile Navigation CSS
 
-#### Task 1.4: Add Archive Link to Navigation
+**File:** `css/styles.css` (UPDATE)
 
-**Files to Update:**
-- `index.html`
-- `about.html`
-- `services.html`
-- `work-little-red-coffee.html`
-- `work-john-howard.html`
-- `work-circular-materials.html`
-- `work-gocactus.html`
-- `thank-you.html`
-- `404.html`
+- [ ] Add mobile navigation styles
+- [ ] Add hamburger menu toggle styles
+- [ ] Add hamburger-to-X animation
+- [ ] Add mobile menu slide-in
+- [ ] Add overlay styles
+- [ ] Add footer styles
 
-**Change Pattern:**
-```html
-<!-- BEFORE -->
-<div class="nav-links">
-    <a href="about.html">About</a>
-    <a href="services.html">Services</a>
-    <a href="#approach">Approach</a>
-    <a href="#work">Work</a>
-    <a href="#contact" class="nav-cta">Start a Conversation</a>
-</div>
+**Code:** Copy CSS from [COMPONENTS-GLOBAL.md Sections 2-3](COMPONENTS-GLOBAL.md#2-mobile-navigation-css)
 
-<!-- AFTER -->
-<div class="nav-links">
-    <a href="about.html">About</a>
-    <a href="services.html">Services</a>
-    <a href="archive/index.html">Archive</a>
-    <a href="#work">Work</a>
-    <a href="#contact" class="nav-cta">Start a Conversation</a>
-</div>
-```
+#### Task 0.3: Update Homepage to Use Components
 
-**Checklist:**
-- [ ] Update `index.html` navigation
-- [ ] Update `about.html` navigation
-- [ ] Update `services.html` navigation
-- [ ] Update `work-little-red-coffee.html` navigation
-- [ ] Update `work-john-howard.html` navigation
-- [ ] Update `work-circular-materials.html` navigation
-- [ ] Update `work-gocactus.html` navigation
-- [ ] Update `thank-you.html` navigation
-- [ ] Update `404.html` navigation
+**File:** `index.html` (UPDATE)
 
-**Note:** Archive pages will have different navigation with relative paths (`../index.html`)
+- [ ] Add `data-page=""` and `data-base-path=""` to `<body>`
+- [ ] Replace `<nav>` with `<div id="header-container"></div>`
+- [ ] Add `<div id="footer-container"></div>` before `</body>`
+- [ ] Add `<script src="js/components.js" defer></script>` in `<head>`
+- [ ] Test: Header renders correctly
+- [ ] Test: Footer renders correctly
+- [ ] Test: Mobile menu works
+
+**Template:** See [COMPONENTS-GLOBAL.md Section 4](COMPONENTS-GLOBAL.md#4-html-page-template)
+
+#### Task 0.4: Migrate Remaining Root Pages
+
+**Update these files with component system:**
+
+- [ ] `about.html` - Set `data-page="about"`
+- [ ] `services.html` - Set `data-page="services"`
+- [ ] `work-little-red-coffee.html` - Set `data-page="work"`
+- [ ] `work-john-howard.html` - Set `data-page="work"`
+- [ ] `work-circular-materials.html` - Set `data-page="work"`
+- [ ] `work-gocactus.html` - Set `data-page="work"`
+- [ ] `404.html` - Set `data-page=""`
+- [ ] `thank-you.html` - Set `data-page=""`
+
+**For each file:**
+1. Add `data-page` and `data-base-path` to `<body>`
+2. Replace nav HTML with `<div id="header-container"></div>`
+3. Replace footer HTML with `<div id="footer-container"></div>` (or add if missing)
+4. Add `<script src="js/components.js" defer></script>`
+
+#### Task 0.5: Test Component System
+
+**Desktop Tests:**
+- [ ] All pages load without errors
+- [ ] Header renders on all pages
+- [ ] Footer renders on all pages
+- [ ] Active page highlighting works
+- [ ] All navigation links work
+- [ ] Scroll shadow appears/disappears
+
+**Mobile Tests (320px - 768px):**
+- [ ] Hamburger menu visible
+- [ ] Menu opens on click
+- [ ] Menu slides in from right
+- [ ] Overlay appears behind menu
+- [ ] Body scroll locks when menu open
+- [ ] Links work in mobile menu
+- [ ] Menu closes on link click
+- [ ] Menu closes on Escape key
+- [ ] Menu closes on overlay click
+
+**Accessibility Tests:**
+- [ ] Tab navigates through links
+- [ ] Enter activates links
+- [ ] Escape closes menu
+- [ ] aria-expanded toggles correctly
+- [ ] Screen reader announces menu state
+
+### Phase 0 Verification
+
+- [ ] All 9 root pages use component system
+- [ ] Mobile menu works on all pages
+- [ ] Footer appears on all pages
+- [ ] No console errors
+- [ ] Navigation is maintainable (edit 1 file)
+- [ ] Git commit: "Phase 0: Global component system with mobile nav"
+
+---
+
+## Phase 1: Foundation (Week 1, Days 3-5)
 
 ### Build Script Enhancement
 

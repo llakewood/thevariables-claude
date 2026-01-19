@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700;9..144,900&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
+    <script src="js/components.js" defer></script>
     <style>
         .about-hero {
             min-height: 70vh;
@@ -259,23 +260,10 @@
         }
     </style>
 </head>
-<body>
+<body data-page="about" data-base-path="">
     <!-- Navigation -->
-    <nav class="nav">
-        <div class="nav-container">
-            <a href="index.html" class="nav-logo">
-                <span class="logo-main">The Variables</span>
-                <span class="logo-suffix">Co.</span>
-            </a>
-            <div class="nav-links">
-                <a href="about.html">About</a>
-                <a href="services.html">Services</a>
-                <a href="index.html#approach">Approach</a>
-                <a href="index.html#work">Work</a>
-                <a href="index.html#contact" class="nav-cta">Start a Conversation</a>
-            </div>
-        </div>
-    </nav>
+    <!-- Header Container (populated by components.js) -->
+    <div id="header-container"></div>
 
     <!-- Hero Section -->
     <section class="about-hero">
@@ -401,55 +389,9 @@
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-container">
-            <div class="footer-main">
-                <div class="footer-brand">
-                    <div class="footer-logo">
-                        <span class="logo-main">The Variables</span>
-                        <span class="logo-suffix">Co.</span>
-                    </div>
-                    <p class="footer-tagline">Digital Strategists creating meaningful change</p>
-                </div>
-                <div class="footer-links">
-                    <div class="footer-column">
-                        <h4>Services</h4>
-                        <ul>
-                            <li><a href="services.html">All Services</a></li>
-                            <li><a href="services.html">Digital Strategy</a></li>
-                            <li><a href="services.html">Design & Development</a></li>
-                            <li><a href="services.html">Product Support</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-column">
-                        <h4>Company</h4>
-                        <ul>
-                            <li><a href="about.html">About Us</a></li>
-                            <li><a href="index.html#approach">Our Approach</a></li>
-                            <li><a href="index.html#work">Our Work</a></li>
-                            <li><a href="index.html#contact">Contact</a></li>
-                        </ul>
-                    </div>
-                    <div class="footer-column">
-                        <h4>Connect</h4>
-                        <ul>
-                            <li><a href="#">LinkedIn</a></li>
-                            <li><a href="#">Twitter</a></li>
-                            <li><a href="#">Instagram</a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>&copy; 2026 The Variables Co. All rights reserved.</p>
-                <div class="footer-legal">
-                    <a href="#">Privacy Policy</a>
-                    <a href="#">Terms of Service</a>
-                </div>
-            </div>
-        </div>
-    </footer>
+    <!-- Footer Container (populated by components.js) -->
+    <div id="footer-container"></div>
 
-    <script src="js/script.js"></script>
+    <script src="js/script.js" defer></script>
 </body>
 </html>
