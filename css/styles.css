@@ -666,6 +666,142 @@ section {
     font-weight: 500;
 }
 
+/* Archive CTA Section */
+.archive-cta {
+    background: linear-gradient(135deg, var(--color-navy) 0%, var(--color-slate) 100%);
+    color: var(--color-white);
+    padding: 8rem var(--container-padding);
+    position: relative;
+    overflow: hidden;
+}
+
+.archive-cta::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    right: -10%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(47, 99, 100, 0.3) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.archive-cta-container {
+    max-width: var(--container-width);
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.archive-cta-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.archive-cta-label {
+    display: inline-block;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-accent-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 1rem;
+    padding: 0.5rem 1rem;
+    background: rgba(47, 99, 100, 0.2);
+    border-radius: 20px;
+}
+
+.archive-cta-title {
+    font-family: var(--font-display);
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--color-white);
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+
+.archive-cta-description {
+    font-size: 1.125rem;
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.8;
+    margin-bottom: 3rem;
+}
+
+.archive-cta-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-bottom: 3rem;
+    padding: 2rem 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.archive-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.archive-stat-number {
+    font-family: var(--font-display);
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--color-accent-primary);
+    line-height: 1;
+}
+
+.archive-stat-label {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.7);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.archive-cta-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    align-items: center;
+}
+
+.archive-cta-actions .btn {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.archive-cta-actions .btn-primary {
+    background: var(--color-accent-primary);
+    color: var(--color-white);
+    border: 2px solid var(--color-accent-primary);
+}
+
+.archive-cta-actions .btn-primary:hover {
+    background: transparent;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(47, 99, 100, 0.3);
+}
+
+.archive-cta-actions .btn-secondary {
+    background: transparent;
+    color: var(--color-white);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+}
+
+.archive-cta-actions .btn-secondary:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.5);
+    transform: translateY(-2px);
+}
+
 /* Testimonial Section */
 .testimonial {
     background: var(--color-slate);
@@ -1252,6 +1388,54 @@ section {
     gap: 0.5rem;
     color: rgba(255, 255, 255, 0.6);
     font-size: 0.875rem;
+}
+
+/* Archive CTA Responsive */
+@media (max-width: 768px) {
+    .archive-cta {
+        padding: 5rem var(--container-padding);
+    }
+
+    .archive-cta-title {
+        font-size: 2rem;
+    }
+
+    .archive-cta-description {
+        font-size: 1rem;
+    }
+
+    .archive-cta-stats {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .archive-stat-number {
+        font-size: 2.5rem;
+    }
+
+    .archive-cta-actions {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .archive-cta-actions .btn {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .archive-cta {
+        padding: 4rem var(--container-padding);
+    }
+
+    .archive-cta-title {
+        font-size: 1.75rem;
+    }
+
+    .archive-stat-number {
+        font-size: 2rem;
+    }
 }
 
 /* Footer Responsive */
