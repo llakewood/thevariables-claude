@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found - The Variables Co.</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700;9..144,900&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .error-page {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 2rem var(--container-padding);
+            background: linear-gradient(135deg, var(--color-cream) 0%, #f8f6f1 100%);
+        }
+
+        .error-container {
+            max-width: 800px;
+            text-align: center;
+        }
+
+        .error-code {
+            font-family: var(--font-display);
+            font-size: clamp(8rem, 20vw, 15rem);
+            font-weight: 900;
+            color: var(--color-accent-primary);
+            line-height: 1;
+            margin-bottom: 1rem;
+            opacity: 0.3;
+        }
+
+        .error-title {
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 700;
+            color: var(--color-navy);
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .error-message {
+            font-size: 1.25rem;
+            line-height: 1.7;
+            color: var(--color-gray);
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .error-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            justify-content: center;
+            margin-bottom: 4rem;
+        }
+
+        .error-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            border-radius: 8px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition-fast);
+        }
+
+        .error-button-primary {
+            background: var(--color-accent-primary);
+            color: var(--color-white);
+        }
+
+        .error-button-primary:hover {
+            background: var(--color-navy);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        .error-button-secondary {
+            background: var(--color-white);
+            color: var(--color-navy);
+            border: 2px solid var(--color-accent-primary);
+        }
+
+        .error-button-secondary:hover {
+            background: var(--color-accent-primary);
+            color: var(--color-white);
+            transform: translateY(-2px);
+        }
+
+        .helpful-links {
+            background: var(--color-white);
+            padding: 2rem;
+            border-radius: 16px;
+            border: 2px solid var(--color-accent-primary);
+        }
+
+        .helpful-links h3 {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--color-navy);
+            margin-bottom: 1.5rem;
+        }
+
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .helpful-link {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem;
+            background: var(--color-light-gray);
+            border-radius: 8px;
+            text-decoration: none;
+            color: var(--color-navy);
+            transition: var(--transition-fast);
+        }
+
+        .helpful-link:hover {
+            background: var(--color-cream);
+            transform: translateX(4px);
+        }
+
+        .helpful-link svg {
+            color: var(--color-accent-primary);
+            flex-shrink: 0;
+        }
+
+        .helpful-link span {
+            font-weight: 500;
+        }
+
+        @media (max-width: 768px) {
+            .error-code {
+                font-size: 6rem;
+            }
+
+            .error-title {
+                font-size: 2rem;
+            }
+
+            .error-message {
+                font-size: 1.125rem;
+            }
+
+            .links-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <span class="logo-main">The Variables</span>
+                <span class="logo-suffix">Co.</span>
+            </a>
+            <div class="nav-links">
+                <a href="about.html">About</a>
+                <a href="services.html">Services</a>
+                <a href="index.html#approach">Approach</a>
+                <a href="index.html#work">Work</a>
+                <a href="index.html#contact" class="nav-cta">Start a Conversation</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Error Page Content -->
+    <section class="error-page">
+        <div class="error-container">
+            <div class="error-code">404</div>
+            <h1 class="error-title">Page Not Found</h1>
+            <p class="error-message">
+                The page you're looking for doesn't exist or has been moved. Let's get you back on track.
+            </p>
+
+            <div class="error-links">
+                <a href="index.html" class="error-button error-button-primary">
+                    <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                        <path d="M10 2L2 8v10h5v-6h6v6h5V8L10 2z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/>
+                    </svg>
+                    Go to Homepage
+                </a>
+                <a href="index.html#contact" class="error-button error-button-secondary">
+                    Contact Us
+                </a>
+            </div>
+
+            <div class="helpful-links">
+                <h3>Popular Pages</h3>
+                <div class="links-grid">
+                    <a href="services.html" class="helpful-link">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="2"/>
+                            <path d="M10 6v8M6 10h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                        <span>Services</span>
+                    </a>
+                    <a href="index.html#work" class="helpful-link">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <rect x="4" y="4" width="12" height="12" rx="2" stroke="currentColor" stroke-width="2"/>
+                            <path d="M7 7h6M7 10h6M7 13h4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                        <span>Our Work</span>
+                    </a>
+                    <a href="about.html" class="helpful-link">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <circle cx="10" cy="7" r="3" stroke="currentColor" stroke-width="2"/>
+                            <path d="M4 17c0-3.3 2.7-6 6-6s6 2.7 6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                        <span>About Us</span>
+                    </a>
+                    <a href="index.html#approach" class="helpful-link">
+                        <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
+                            <path d="M10 2v16M2 10h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            <circle cx="10" cy="10" r="8" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                        <span>Our Approach</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

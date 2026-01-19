@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Services - The Variables Co.</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700;9..144,900&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .services-hero {
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            padding: 8rem var(--container-padding) 4rem;
+            background: linear-gradient(135deg, var(--color-navy) 0%, #2d3e50 100%);
+            color: var(--color-white);
+        }
+
+        .services-hero-container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .services-hero h1 {
+            font-family: var(--font-display);
+            font-size: clamp(3rem, 8vw, 5rem);
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+        }
+
+        .services-hero .lead {
+            font-size: 1.5rem;
+            line-height: 1.6;
+            color: var(--color-cream);
+            max-width: 800px;
+            margin: 0 auto 2rem;
+        }
+
+        .core-services {
+            padding: 8rem var(--container-padding);
+            background: var(--color-white);
+        }
+
+        .core-services-container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+        }
+
+        .section-intro {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto 5rem;
+        }
+
+        .section-intro h2 {
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            color: var(--color-navy);
+            margin-bottom: 1.5rem;
+        }
+
+        .section-intro p {
+            font-size: 1.25rem;
+            line-height: 1.7;
+            color: var(--color-gray);
+        }
+
+        .core-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 3rem;
+            margin-bottom: 6rem;
+        }
+
+        .core-card {
+            background: var(--color-light-gray);
+            padding: 3rem;
+            border-radius: 16px;
+            transition: var(--transition-smooth);
+            border-top: 6px solid var(--color-burgundy);
+        }
+
+        .core-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+        }
+
+        .core-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--color-burgundy) 0%, #d64420 100%);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 2rem;
+            color: var(--color-white);
+        }
+
+        .core-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: var(--color-navy);
+            margin-bottom: 1rem;
+        }
+
+        .core-card p {
+            color: var(--color-gray);
+            line-height: 1.8;
+        }
+
+        .detailed-services {
+            padding: 8rem var(--container-padding);
+            background: var(--color-cream);
+        }
+
+        .detailed-services-container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+        }
+
+        .service-detail {
+            background: var(--color-white);
+            border-radius: 16px;
+            padding: 4rem;
+            margin-bottom: 3rem;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .service-detail:last-child {
+            margin-bottom: 0;
+        }
+
+        .service-detail-header h3 {
+            font-family: var(--font-display);
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--color-navy);
+            margin-bottom: 1rem;
+        }
+
+        .service-number {
+            font-family: var(--font-display);
+            font-size: 4rem;
+            font-weight: 900;
+            color: var(--color-cream);
+            line-height: 1;
+            margin-bottom: 1rem;
+        }
+
+        .service-detail-content h4 {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--color-navy);
+            margin-bottom: 1rem;
+        }
+
+        .service-detail-content p {
+            font-size: 1.125rem;
+            line-height: 1.8;
+            color: var(--color-gray);
+            margin-bottom: 2rem;
+        }
+
+        .service-features {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+
+        .service-features li {
+            padding-left: 2rem;
+            position: relative;
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: var(--color-gray);
+        }
+
+        .service-features li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--color-burgundy);
+            font-weight: 600;
+        }
+
+        .philosophy-section {
+            padding: 8rem var(--container-padding);
+            background: var(--color-burgundy);
+            color: var(--color-white);
+            text-align: center;
+        }
+
+        .philosophy-container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .philosophy-container h2 {
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            margin-bottom: 2rem;
+        }
+
+        .philosophy-container p {
+            font-size: 1.5rem;
+            line-height: 1.7;
+            color: rgba(255, 255, 255, 0.95);
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--color-white);
+            color: var(--color-burgundy);
+            padding: 1.25rem 3rem;
+            border-radius: 8px;
+            font-size: 1.125rem;
+            font-weight: 600;
+            text-decoration: none;
+            margin-top: 2rem;
+            transition: var(--transition-fast);
+        }
+
+        .cta-button:hover {
+            background: var(--color-cream);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+        }
+
+        @media (max-width: 1024px) {
+            .core-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .service-detail {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <span class="logo-main">The Variables</span>
+                <span class="logo-suffix">Co.</span>
+            </a>
+            <div class="nav-links">
+                <a href="about.html">About</a>
+                <a href="services.html">Services</a>
+                <a href="index.html#approach">Approach</a>
+                <a href="index.html#work">Work</a>
+                <a href="index.html#contact" class="nav-cta">Start a Conversation</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="services-hero">
+        <div class="services-hero-container">
+            <h1>Strategic Services for Digital Growth</h1>
+            <p class="lead">
+                From discovery to deployment and beyond—we provide the expertise, partnership, and technical excellence to help your business thrive online.
+            </p>
+        </div>
+    </section>
+
+    <!-- Core Services -->
+    <section class="core-services">
+        <div class="core-services-container">
+            <div class="section-intro">
+                <h2>What We Do</h2>
+                <p>
+                    Our team of digital strategists, designers, and developers delivers comprehensive solutions tailored to your business needs.
+                </p>
+            </div>
+
+            <div class="core-grid">
+                <div class="core-card">
+                    <div class="core-icon">
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                            <path d="M20 8l8 16h-16l8-16zM20 8v16M12 24h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            <circle cx="20" cy="20" r="15" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <h3>Creative Design</h3>
+                    <p>
+                        Our team of professional graphic and web designers will help you with unique and creative logo and website designs that match your business.
+                    </p>
+                </div>
+
+                <div class="core-card">
+                    <div class="core-icon">
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                            <rect x="8" y="12" width="24" height="18" rx="2" stroke="currentColor" stroke-width="2"/>
+                            <path d="M14 18h12M14 22h8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            <circle cx="20" cy="8" r="3" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <h3>Research & Development</h3>
+                    <p>
+                        We develop your website after an extensive research in your industry, and our focus is to create a strong user interface that provides maximum value to our clients.
+                    </p>
+                </div>
+
+                <div class="core-card">
+                    <div class="core-icon">
+                        <svg width="40" height="40" viewBox="0 0 40 40" fill="none">
+                            <path d="M20 10l-8 8 8 8M28 10l-8 8 8 8" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                            <circle cx="20" cy="20" r="15" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <h3>Branding & Marketing</h3>
+                    <p>
+                        Need help with a logo or to market your business online? We help businesses expand their brand to reach a wider audience.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Detailed Services -->
+    <section class="detailed-services">
+        <div class="detailed-services-container">
+            <div class="service-detail" id="strategy">
+                <div class="service-detail-header">
+                    <div class="service-number">01</div>
+                    <h3>Discovery & Strategy</h3>
+                </div>
+                <div class="service-detail-content">
+                    <h4>Navigate Decisions That Matter</h4>
+                    <p>
+                        We help you navigate the design decisions that affect your business performance. Balancing flexibility, cost management, and project timelines, we work with you to realize your vision for new operational approaches.
+                    </p>
+                    <ul class="service-features">
+                        <li>Strategic planning sessions to align business goals with digital solutions</li>
+                        <li>User research and competitive analysis</li>
+                        <li>Technical architecture and platform recommendations</li>
+                        <li>Cost-benefit analysis and roadmap development</li>
+                        <li>Grant identification and application support</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-detail" id="development">
+                <div class="service-detail-header">
+                    <div class="service-number">02</div>
+                    <h3>Digital Design & Development</h3>
+                </div>
+                <div class="service-detail-content">
+                    <h4>Build What Works</h4>
+                    <p>
+                        We build functional, aesthetically balanced web applications. Our methodology integrates web design, construction, and search engine optimization to help you succeed online and make it sustainable.
+                    </p>
+                    <ul class="service-features">
+                        <li>Custom website design and development</li>
+                        <li>WordPress development and custom themes</li>
+                        <li>E-commerce solutions and payment integration</li>
+                        <li>Responsive design for all devices</li>
+                        <li>Brand identity and logo design</li>
+                        <li>No-code and low-code solutions for rapid deployment</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="service-detail" id="support">
+                <div class="service-detail-header">
+                    <div class="service-number">03</div>
+                    <h3>Support & Innovation</h3>
+                </div>
+                <div class="service-detail-content">
+                    <h4>Maintain and Extend</h4>
+                    <p>
+                        Post-launch services maintain and extend your digital products with custom functionality. We provide stewardship for your ongoing software needs and can rescue projects abandoned by previous developers.
+                    </p>
+                    <ul class="service-features">
+                        <li>WordPress maintenance and security updates</li>
+                        <li>Hosting management and optimization</li>
+                        <li>Performance monitoring and improvement</li>
+                        <li>Security audits and vulnerability remediation</li>
+                        <li>Agency support for managing legacy portfolios</li>
+                        <li>Rescue missions for compromised or underperforming sites</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Philosophy -->
+    <section class="philosophy-section">
+        <div class="philosophy-container">
+            <h2>You're Not Growing Alone</h2>
+            <p>
+                When connected with us, you aren't growing your business alone. We're committed to contributing to the growth of your entire organization.
+            </p>
+            <p>
+                We position ourselves as partners, not vendors—invested in your success and dedicated to helping you achieve your goals.
+            </p>
+            <a href="index.html#contact" class="cta-button">Let's Talk About Your Project</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-main">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <span class="logo-main">The Variables</span>
+                        <span class="logo-suffix">Co.</span>
+                    </div>
+                    <p class="footer-tagline">Digital Strategists creating meaningful change</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Services</h4>
+                        <ul>
+                            <li><a href="services.html">All Services</a></li>
+                            <li><a href="services.html">Digital Strategy</a></li>
+                            <li><a href="services.html">Design & Development</a></li>
+                            <li><a href="services.html">Product Support</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Company</h4>
+                        <ul>
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="index.html#approach">Our Approach</a></li>
+                            <li><a href="index.html#work">Our Work</a></li>
+                            <li><a href="index.html#contact">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Connect</h4>
+                        <ul>
+                            <li><a href="#">LinkedIn</a></li>
+                            <li><a href="#">Twitter</a></li>
+                            <li><a href="#">Instagram</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 The Variables Co. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

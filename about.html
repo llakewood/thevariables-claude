@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - The Variables Co.</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700;9..144,900&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .about-hero {
+            min-height: 70vh;
+            display: flex;
+            align-items: center;
+            padding: 8rem var(--container-padding) 4rem;
+            background: linear-gradient(135deg, var(--color-cream) 0%, #f8f6f1 100%);
+        }
+
+        .about-hero-container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 6rem;
+            align-items: center;
+        }
+
+        .about-hero-content h1 {
+            font-family: var(--font-display);
+            font-size: clamp(3rem, 8vw, 5rem);
+            font-weight: 900;
+            color: var(--color-navy);
+            line-height: 1.1;
+            margin-bottom: 2rem;
+        }
+
+        .about-hero-content .lead {
+            font-size: 1.5rem;
+            line-height: 1.6;
+            color: var(--color-gray);
+            margin-bottom: 2rem;
+        }
+
+        .about-hero-visual {
+            position: relative;
+            height: 400px;
+        }
+
+        .visual-shape {
+            position: absolute;
+            border-radius: 16px;
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .shape-1 {
+            top: 0;
+            left: 0;
+            width: 60%;
+            height: 60%;
+            background: linear-gradient(135deg, var(--color-burgundy) 0%, #d64420 100%);
+            animation-delay: 0s;
+        }
+
+        .shape-2 {
+            bottom: 0;
+            right: 0;
+            width: 60%;
+            height: 60%;
+            background: linear-gradient(135deg, var(--color-navy) 0%, #2d3e50 100%);
+            animation-delay: 1s;
+        }
+
+        .mission-vision {
+            padding: 8rem var(--container-padding);
+            background: var(--color-white);
+        }
+
+        .mission-vision-container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 4rem;
+        }
+
+        .mv-card {
+            background: var(--color-light-gray);
+            padding: 3rem;
+            border-radius: 16px;
+            border-left: 6px solid var(--color-burgundy);
+        }
+
+        .mv-card h2 {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--color-navy);
+            margin-bottom: 1.5rem;
+        }
+
+        .mv-card p {
+            font-size: 1.125rem;
+            line-height: 1.8;
+            color: var(--color-gray);
+        }
+
+        .values-section {
+            padding: 8rem var(--container-padding);
+            background: var(--color-navy);
+            color: var(--color-white);
+        }
+
+        .values-container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+        }
+
+        .values-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .values-header h2 {
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            color: var(--color-white);
+            margin-bottom: 1rem;
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 3rem;
+        }
+
+        .value-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2.5rem;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: var(--transition-smooth);
+        }
+
+        .value-card:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-4px);
+        }
+
+        .value-icon {
+            width: 64px;
+            height: 64px;
+            background: var(--color-burgundy);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            color: var(--color-white);
+        }
+
+        .value-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--color-cream);
+            margin-bottom: 1rem;
+        }
+
+        .value-card p {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.7;
+        }
+
+        .leadership-section {
+            padding: 8rem var(--container-padding);
+            background: var(--color-cream);
+        }
+
+        .leadership-container {
+            max-width: 900px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .leadership-container h2 {
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            color: var(--color-navy);
+            margin-bottom: 2rem;
+        }
+
+        .leadership-container .subtitle {
+            font-size: 1.25rem;
+            color: var(--color-burgundy);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .leadership-container p {
+            font-size: 1.125rem;
+            line-height: 1.8;
+            color: var(--color-gray);
+            margin-bottom: 2rem;
+        }
+
+        .cta-section {
+            padding: 8rem var(--container-padding);
+            background: var(--color-burgundy);
+            color: var(--color-white);
+            text-align: center;
+        }
+
+        .cta-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .cta-container h2 {
+            font-family: var(--font-display);
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-container p {
+            font-size: 1.25rem;
+            line-height: 1.7;
+            margin-bottom: 2.5rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--color-white);
+            color: var(--color-burgundy);
+            padding: 1.25rem 3rem;
+            border-radius: 8px;
+            font-size: 1.125rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: var(--transition-fast);
+        }
+
+        .cta-button:hover {
+            background: var(--color-cream);
+            transform: translateY(-4px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+        }
+
+        @media (max-width: 1024px) {
+            .about-hero-container,
+            .mission-vision-container,
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav-container">
+            <a href="index.html" class="nav-logo">
+                <span class="logo-main">The Variables</span>
+                <span class="logo-suffix">Co.</span>
+            </a>
+            <div class="nav-links">
+                <a href="about.html">About</a>
+                <a href="services.html">Services</a>
+                <a href="index.html#approach">Approach</a>
+                <a href="index.html#work">Work</a>
+                <a href="index.html#contact" class="nav-cta">Start a Conversation</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="about-hero">
+        <div class="about-hero-container">
+            <div class="about-hero-content">
+                <h1>We're digital strategists who care about your success</h1>
+                <p class="lead">
+                    A collective of creative technologists committed to helping businesses establish and grow their online presence through strategic design, development, and partnership.
+                </p>
+                <p class="lead">
+                    You aren't growing your business alone. We're here to contribute to the growth of your entire organization.
+                </p>
+            </div>
+            <div class="about-hero-visual">
+                <div class="visual-shape shape-1"></div>
+                <div class="visual-shape shape-2"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Mission & Vision -->
+    <section class="mission-vision">
+        <div class="mission-vision-container">
+            <div class="mv-card">
+                <h2>Our Mission</h2>
+                <p>
+                    Empower our clients to use online tools and communication to their full potential by providing affordable, effective, custom design and software solutions.
+                </p>
+            </div>
+            <div class="mv-card">
+                <h2>Our Vision</h2>
+                <p>
+                    Become a trusted partner providing dependable and straightforward web design and development services to improve our clients' productivity and business strength.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Values -->
+    <section class="values-section">
+        <div class="values-container">
+            <div class="values-header">
+                <h2>What Drives Us</h2>
+            </div>
+            <div class="values-grid">
+                <div class="value-card">
+                    <div class="value-icon">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                            <path d="M16 6l6 12 14 2-10 10 2 14-12-6-12 6 2-14-10-10 14-2 6-12z" stroke="currentColor" stroke-width="2" stroke-linejoin="round" transform="scale(0.5) translate(16, 16)"/>
+                        </svg>
+                    </div>
+                    <h3>Committed to Excellence</h3>
+                    <p>
+                        We're dedicated to delivering the best solutions for your business. Quality isn't negotiable—it's the foundation of everything we build.
+                    </p>
+                </div>
+
+                <div class="value-card">
+                    <div class="value-icon">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                            <circle cx="16" cy="16" r="10" stroke="currentColor" stroke-width="2"/>
+                            <path d="M16 12v5l3 3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <h3>Honest & Transparent</h3>
+                    <p>
+                        We believe in straightforward communication. No jargon, no hidden costs, no surprises—just clear, honest partnership.
+                    </p>
+                </div>
+
+                <div class="value-card">
+                    <div class="value-icon">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                            <path d="M12 16l4 4 8-8" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                            <circle cx="16" cy="16" r="12" stroke="currentColor" stroke-width="2"/>
+                        </svg>
+                    </div>
+                    <h3>Deeply Invested in Your Success</h3>
+                    <p>
+                        Your business goals become our goals. We care about your success as much as you do, and we're committed to helping you achieve it.
+                    </p>
+                </div>
+
+                <div class="value-card">
+                    <div class="value-icon">
+                        <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                            <rect x="6" y="8" width="20" height="16" rx="2" stroke="currentColor" stroke-width="2"/>
+                            <path d="M12 14h8M12 18h6" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <h3>Continuous Learning</h3>
+                    <p>
+                        Technology evolves rapidly. We stay current with the latest tools, trends, and best practices to ensure your solutions remain effective and competitive.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leadership -->
+    <section class="leadership-section">
+        <div class="leadership-container">
+            <h2>Leadership</h2>
+            <p class="subtitle">Les Lakewood, Founder</p>
+            <p>
+                Les brings award-winning business leadership combined with decades of experience in digital design and development. His approach emphasizes strategic thinking, asking the right questions upfront, and building long-term partnerships rather than one-off projects.
+            </p>
+            <p>
+                Under his leadership, The Variables Co. has become known for rescue missions—taking on challenging projects that require both technical expertise and business acumen—as well as helping agencies and organizations navigate digital transformation.
+            </p>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section">
+        <div class="cta-container">
+            <h2>Let's Work Together</h2>
+            <p>
+                Ready to create meaningful change? Whether you're launching something new, fixing something broken, or evolving your digital presence, we're here to help.
+            </p>
+            <a href="index.html#contact" class="cta-button">Start a Conversation</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-container">
+            <div class="footer-main">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <span class="logo-main">The Variables</span>
+                        <span class="logo-suffix">Co.</span>
+                    </div>
+                    <p class="footer-tagline">Digital Strategists creating meaningful change</p>
+                </div>
+                <div class="footer-links">
+                    <div class="footer-column">
+                        <h4>Services</h4>
+                        <ul>
+                            <li><a href="services.html">All Services</a></li>
+                            <li><a href="services.html">Digital Strategy</a></li>
+                            <li><a href="services.html">Design & Development</a></li>
+                            <li><a href="services.html">Product Support</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Company</h4>
+                        <ul>
+                            <li><a href="about.html">About Us</a></li>
+                            <li><a href="index.html#approach">Our Approach</a></li>
+                            <li><a href="index.html#work">Our Work</a></li>
+                            <li><a href="index.html#contact">Contact</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-column">
+                        <h4>Connect</h4>
+                        <ul>
+                            <li><a href="#">LinkedIn</a></li>
+                            <li><a href="#">Twitter</a></li>
+                            <li><a href="#">Instagram</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 The Variables Co. All rights reserved.</p>
+                <div class="footer-legal">
+                    <a href="#">Privacy Policy</a>
+                    <a href="#">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+</html>

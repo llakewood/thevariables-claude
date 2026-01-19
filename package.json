@@ -1,0 +1,16 @@
+{
+  "name": "thevariables-website",
+  "version": "1.0.0",
+  "description": "The Variables Co. - Digital Strategists website",
+  "scripts": {
+    "build": "node build.js",
+    "dev": "node build.js && npx http-server -p 8080 -o",
+    "serve": "npx http-server -p 8080 -o"
+  },
+  "keywords": [
+    "static-site",
+    "web3forms"
+  ],
+  "author": "The Variables Co.",
+  "license": "MIT"
+}

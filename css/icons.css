@@ -1,0 +1,112 @@
+/*
+ * Icon System for The Variables Co.
+ * Consistent wayfinding icons used throughout the site
+ */
+
+/* Icon Container Base Styles */
+.icon-service {
+    width: 48px;
+    height: 48px;
+    border-radius: 12px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-cream);
+    color: var(--color-accent-primary);
+    flex-shrink: 0;
+}
+
+.icon-service-lg {
+    width: 64px;
+    height: 64px;
+}
+
+.icon-service-sm {
+    width: 32px;
+    height: 32px;
+}
+
+/* Icon Variants */
+.icon-strategy {
+    /* Digital Strategy & Discovery icon */
+}
+
+.icon-development {
+    /* Design & Development icon */
+}
+
+.icon-support {
+    /* Support & Innovation icon */
+}
+
+/* Icon States */
+.icon-service:hover,
+.icon-service.active {
+    background: var(--color-accent-primary);
+    color: var(--color-white);
+}
+
+/* Icon Usage in Different Contexts */
+
+/* In hero section */
+.hero-service-icon {
+    width: 64px;
+    height: 64px;
+}
+
+/* In service cards */
+.service-card .service-icon {
+    width: 64px;
+    height: 64px;
+}
+
+/* In case study hero - service tags */
+/* Styling is primarily defined in work-case-study.css */
+/* Each case study displays relevant service icons in the hero section */
+/* Example usage in case studies:
+    <div class="case-services">
+        <div class="case-study-service-tag">
+            <div class="service-icon icon-strategy">
+                [SVG icon here]
+            </div>
+            <span>Digital Strategy & Discovery</span>
+        </div>
+    </div>
+*/
+
+.case-study-service-tag .service-icon {
+    width: 32px;
+    height: 32px;
+    border-radius: 8px;
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    .icon-service,
+    .icon-service * {
+        transition: none !important;
+    }
+}
+
+/* SVG Icon Library */
+/*
+Usage: Copy the SVG code below wherever you need these icons
+
+STRATEGY ICON:
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+    <circle cx="16" cy="16" r="10" stroke="currentColor" stroke-width="2"/>
+    <path d="M16 10v12M10 16h12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+</svg>
+
+DEVELOPMENT ICON:
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+    <rect x="8" y="12" width="16" height="12" rx="2" stroke="currentColor" stroke-width="2"/>
+    <path d="M14 20h4M14 24h4" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+</svg>
+
+SUPPORT ICON:
+<svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+    <path d="M16 8v16M8 12l8-4 8 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <circle cx="16" cy="16" r="4" stroke="currentColor" stroke-width="2"/>
+</svg>
+*/

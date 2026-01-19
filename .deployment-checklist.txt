@@ -1,0 +1,39 @@
+# Pre-Deployment Checklist for The Variables Co. Website
+
+## Build
+- [ ] Environment variables configured in .env
+- [ ] Run: npm run build
+- [ ] Verify js/config.js exists and contains access key
+
+## Testing
+- [ ] Test all pages locally (npm run serve)
+- [ ] Test contact form submission
+- [ ] Check browser console for errors
+- [ ] Test on mobile devices
+
+## Files to Deploy
+- [ ] All .html files (10 files total)
+  - index.html, about.html, services.html
+  - work-little-red-coffee.html, work-john-howard.html, work-circular-materials.html, work-gocactus.html
+  - 404.html, thank-you.html
+- [ ] css/ directory (3 CSS files)
+- [ ] js/ directory (2 JS files)
+
+## Do NOT Deploy
+- [ ] .env file
+- [ ] node_modules/ (if exists)
+- [ ] Build scripts (build.js, config.template.js, package.json)
+- [ ] .gitignore
+
+## Post-Deployment
+- [ ] Test live site at https://thevariables.com
+- [ ] Submit test contact form
+- [ ] Check email for form submission
+- [ ] Configure Web3Forms domain whitelist
+- [ ] Test all navigation links
+- [ ] Test on different browsers
+
+## Notes
+- Contact form uses Web3Forms (access key in js/config.js)
+- Access key is public by design (secured via domain whitelist)
+- All real case study content from thevariables.com
