@@ -155,9 +155,12 @@ This is a static site—just upload HTML, CSS, and JS files to any web host.
 - `node_modules/`
 
 **Pre-deployment:**
-1. Run `npm run build` to ensure `js/config.js` is current
+
+1. Run `npm run build:all` to generate `js/config.js` and `data/archive-data.json`
 2. Test form submission locally
 3. Configure domain whitelist in Web3Forms dashboard
+
+**Important:** Archive pages require a web server to function (cannot use `file://` protocol due to fetch() CORS restrictions). Always use `npm run serve` or similar when testing locally.
 
 See `documentation/DEPLOYMENT.md` for complete deployment guide.
 
