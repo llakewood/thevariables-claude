@@ -123,7 +123,8 @@ function injectDataIntoHTML(projects, skills) {
         const replacement = `window.archiveData = ${dataString};`;
 
         if (html.includes('window.archiveData')) {
-            html = html.replace(/window\.archiveData\s*=\s*\{[^}]*\};?/s, replacement);
+            // Match the entire archiveData object including nested structures
+            html = html.replace(/window\.archiveData\s*=\s*\{[\s\S]*?\};/m, replacement);
         } else {
             // If not found, inject before closing body tag
             html = html.replace(
