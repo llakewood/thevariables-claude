@@ -22,22 +22,37 @@ let currentFilters = {
 /**
  * Initialize archive page
  */
-function initArchive() {
-    // Load data from window.archiveData
-    if (!window.archiveData || !window.archiveData.projects) {
-        console.error('Archive data not found');
-        return;
+async function initArchive() {
+    // Load data from external JSON file
+    try {
+        const response = await fetch('../data/archive-data.json');
+        if (!response.ok) {
+            throw new Error('HTTP error status: ' + response.status);
+        }
+        const archiveData = await response.json();
+
+        if (!archiveData || !archiveData.projects) {
+            console.error('Archive data not found or invalid');
+            return;
+        }
+
+        allProjects = archiveData.projects;
+        filteredProjects = [...allProjects];
+
+        // Render initial projects
+        renderProjects(filteredProjects);
+
+        // Setup event listeners
+        setupFilterListeners();
+        setupModalListeners();
+    } catch (error) {
+        console.error('Failed to load archive data:', error);
+        // Show error message to user
+        const grid = document.getElementById('project-grid');
+        if (grid) {
+            grid.innerHTML = '<p style="text-align: center; padding: 2rem;">Failed to load archive data. Please try again later.</p>';
+        }
     }
-
-    allProjects = window.archiveData.projects;
-    filteredProjects = [...allProjects];
-
-    // Render initial projects
-    renderProjects(filteredProjects);
-
-    // Setup event listeners
-    setupFilterListeners();
-    setupModalListeners();
 }
 
 /**
@@ -422,25 +437,47 @@ function renderSkills(skills) {
 }
 
 // Initialize when DOM is ready
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', async () => {
     console.log('Archive page initialized');
 
     // Detect which archive page we're on
     const path = window.location.pathname;
 
-    if (path.includes('timeline.html')) {
-        // Timeline page
-        if (window.archiveData && window.archiveData.projects) {
-            renderTimeline(window.archiveData.projects);
+    // Load archive data from external JSON
+    try {
+        const response = await fetch('../data/archive-data.json');
+        if (!response.ok) {
+            throw new Error('HTTP error status: ' + response.status);
+        }
+        const archiveData = await response.json();
+
+        if (path.includes('timeline.html')) {
+            // Timeline page
+            if (archiveData && archiveData.projects) {
+                renderTimeline(archiveData.projects);
+                setupModalListeners();
+            }
+        } else if (path.includes('skills.html')) {
+            // Skills page
+            if (archiveData && archiveData.skills) {
+                renderSkills(archiveData.skills);
+            }
+        } else {
+            // Default: Projects grid page
+            // Set global data and initialize
+            allProjects = archiveData.projects;
+            filteredProjects = [...allProjects];
+            renderProjects(filteredProjects);
+            setupFilterListeners();
             setupModalListeners();
         }
-    } else if (path.includes('skills.html')) {
-        // Skills page
-        if (window.archiveData && window.archiveData.skills) {
-            renderSkills(window.archiveData.skills);
-        }
-    } else {
-        // Default: Projects grid page
-        initArchive();
+    } catch (error) {
+        console.error('Failed to load archive data:', error);
+        // Show error message
+        const container = document.querySelector('.container') || document.body;
+        const errorDiv = document.createElement('div');
+        errorDiv.style.cssText = 'text-align: center; padding: 2rem; color: #dc2626;';
+        errorDiv.textContent = 'Failed to load archive data. Please try again later.';
+        container.appendChild(errorDiv);
     }
 });

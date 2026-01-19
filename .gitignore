@@ -7,6 +7,8 @@ node_modules/
 # Build output
 dist/
 build/
+js/config.js
+data/archive-data.json
 
 # OS files
 .DS_Store

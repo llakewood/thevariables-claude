@@ -83,8 +83,8 @@ function validateArchiveData() {
     return { projects, skills };
 }
 
-function injectDataIntoHTML(projects, skills) {
-    console.log('\n📝 Injecting data into HTML files...\n');
+function generateArchiveJSON(projects, skills) {
+    console.log('\n📝 Generating archive JSON file...\n');
 
     // Transform projects to match frontend expectations
     const transformedProjects = projects.map(p => ({
@@ -106,38 +106,13 @@ function injectDataIntoHTML(projects, skills) {
         skills: skills
     };
 
-    // Read archive HTML files
-    const archiveFiles = ['archive/index.html', 'archive/timeline.html', 'archive/skills.html'];
+    // Write to JSON file
+    const jsonPath = path.join(__dirname, 'data', 'archive-data.json');
+    fs.writeFileSync(jsonPath, JSON.stringify(dataObject, null, 2));
 
-    archiveFiles.forEach(filePath => {
-        const fullPath = path.join(__dirname, filePath);
-        if (!fs.existsSync(fullPath)) {
-            console.log(`⚠️  Skipping ${filePath} (not found)`);
-            return;
-        }
-
-        let html = fs.readFileSync(fullPath, 'utf8');
-
-        // Find and replace the window.archiveData placeholder
-        const dataString = JSON.stringify(dataObject, null, 2);
-        const replacement = `window.archiveData = ${dataString};`;
-
-        if (html.includes('window.archiveData')) {
-            // Match the entire archiveData object including nested structures
-            html = html.replace(/window\.archiveData\s*=\s*\{[\s\S]*?\};/m, replacement);
-        } else {
-            // If not found, inject before closing body tag
-            html = html.replace(
-                /<script src=".*\/js\/archive\.js"/,
-                `<script>\n        ${replacement}\n    </script>\n    <script src="../js/archive.js"`
-            );
-        }
-
-        fs.writeFileSync(fullPath, html);
-        console.log(`✅ Updated ${filePath}`);
-    });
-
-    console.log('\n✨ Data injection complete!');
+    console.log(`✅ Created data/archive-data.json`);
+    console.log(`   ${transformedProjects.length} projects, ${skills.length} skills`);
+    console.log('\n✨ Archive JSON generation complete!');
 }
 
 function formatTimeline(timeline) {
@@ -163,10 +138,10 @@ function extractTechStack(tech) {
     return [...new Set(stack)]; // Remove duplicates
 }
 
-// Run validation and injection
+// Run validation and JSON generation
 try {
     const { projects, skills } = validateArchiveData();
-    injectDataIntoHTML(projects, skills);
+    generateArchiveJSON(projects, skills);
 } catch (error) {
     console.error('❌ Build failed:', error.message);
     process.exit(1);
