@@ -96,7 +96,7 @@ function createProjectCard(project) {
     const confidence = Math.round(project.confidence_score * 100);
 
     return `
-        <div class="project-card" data-project-id="${project.id}">
+        <div class="project-card" data-project-id="${project.id}" style="--confidence: ${confidence}%">
             <div class="project-card-header">
                 <h3 class="project-card-title">${project.title}</h3>
                 <div class="project-card-timeline">${project.timeline}</div>
@@ -115,7 +115,7 @@ function createProjectCard(project) {
                 <div class="confidence-badge">
                     <span>Confidence</span>
                     <div class="confidence-bar">
-                        <div class="confidence-fill" style="width: ${confidence}%"></div>
+                        <div class="confidence-fill"></div>
                     </div>
                 </div>
                 <span class="view-details">View Details</span>
@@ -333,7 +333,12 @@ function hideProjectDetail() {
 /**
  * Setup modal event listeners
  */
+let modalListenersSetup = false;
+
 function setupModalListeners() {
+    // Only setup listeners once to avoid duplicates
+    if (modalListenersSetup) return;
+
     const modal = document.getElementById('project-modal');
     const closeButton = modal?.querySelector('.modal-close');
     const overlay = modal?.querySelector('.modal-overlay');
@@ -352,6 +357,8 @@ function setupModalListeners() {
             hideProjectDetail();
         }
     });
+
+    modalListenersSetup = true;
 }
 
 /**
@@ -436,6 +443,124 @@ function renderSkills(skills) {
     `).join('');
 }
 
+// Helper function to extract year from timeline string
+function extractStartYear(timelineText) {
+    if (!timelineText) return 0;
+    const yearMatch = timelineText.match(/\d{4}/);
+    return yearMatch ? parseInt(yearMatch[0]) : 0;
+}
+
+// Sort projects chronologically (most recent first)
+function sortProjectsChronologically(projects) {
+    return [...projects].sort((a, b) => {
+        const yearA = extractStartYear(a.timeline);
+        const yearB = extractStartYear(b.timeline);
+        return yearB - yearA; // Descending order (most recent first)
+    });
+}
+
+// Update archive hero stats dynamically
+function updateArchiveHeroStats(archiveData) {
+    const heroStats = document.querySelectorAll('.archive-hero-stats .stat-number');
+    if (heroStats.length === 0) return; // Not on a page with hero stats
+
+    const path = window.location.pathname;
+
+    if (path.includes('timeline.html')) {
+        // Timeline page: Started, Milestones, Present
+        const currentYear = new Date().getFullYear();
+        let earliestYear = currentYear;
+
+        archiveData.projects.forEach(project => {
+            const year = extractStartYear(project.timeline);
+            if (year > 0 && year < earliestYear) {
+                earliestYear = year;
+            }
+        });
+
+        const projectCount = archiveData.projects.length;
+
+        if (heroStats.length >= 3) {
+            heroStats[0].textContent = earliestYear; // Started
+            heroStats[1].textContent = projectCount; // Milestones
+            heroStats[2].textContent = currentYear;  // Present
+        }
+
+        console.log(`Timeline stats updated: Started ${earliestYear}, ${projectCount} milestones, Present ${currentYear}`);
+    } else if (path.includes('skills.html')) {
+        // Skills page: Categories, Skills, Years
+        const skillsCount = archiveData.skills ? archiveData.skills.length : 0;
+
+        // Count unique categories
+        const categories = new Set();
+        if (archiveData.skills) {
+            archiveData.skills.forEach(skill => {
+                if (skill.category) {
+                    categories.add(skill.category);
+                }
+            });
+        }
+        const categoryCount = categories.size;
+
+        // Calculate year span
+        const currentYear = new Date().getFullYear();
+        let earliestYear = currentYear;
+        archiveData.projects.forEach(project => {
+            const year = extractStartYear(project.timeline);
+            if (year > 0 && year < earliestYear) {
+                earliestYear = year;
+            }
+        });
+        const yearSpan = currentYear - earliestYear;
+
+        if (heroStats.length >= 3) {
+            heroStats[0].textContent = categoryCount; // Categories
+            heroStats[1].textContent = skillsCount;   // Skills
+            heroStats[2].textContent = yearSpan;      // Years
+        }
+
+        console.log(`Skills stats updated: ${categoryCount} categories, ${skillsCount} skills, ${yearSpan} years`);
+    } else {
+        // Projects page: Projects, Technologies, Years
+        const projectCount = archiveData.projects.length;
+
+        // Calculate unique technologies from all projects
+        const allTechnologies = new Set();
+        archiveData.projects.forEach(project => {
+            if (project.technology_stack && Array.isArray(project.technology_stack)) {
+                project.technology_stack.forEach(tech => allTechnologies.add(tech));
+            }
+        });
+        const techCount = allTechnologies.size;
+
+        // Calculate year span (earliest project to current year)
+        const currentYear = new Date().getFullYear();
+        let earliestYear = currentYear;
+        archiveData.projects.forEach(project => {
+            const year = extractStartYear(project.timeline);
+            if (year > 0 && year < earliestYear) {
+                earliestYear = year;
+            }
+        });
+        const yearSpan = currentYear - earliestYear;
+
+        // Update DOM elements
+        if (heroStats.length >= 3) {
+            heroStats[0].textContent = projectCount;
+            heroStats[1].textContent = techCount;
+            heroStats[2].textContent = yearSpan;
+        }
+
+        console.log(`Archive stats updated: ${projectCount} projects, ${techCount} technologies, ${yearSpan} years`);
+    }
+
+    // Fade in stats after updating
+    const statsContainer = document.querySelector('.archive-hero-stats');
+    if (statsContainer) {
+        statsContainer.style.opacity = '1';
+    }
+}
+
 // Initialize when DOM is ready
 document.addEventListener('DOMContentLoaded', async () => {
     console.log('Archive page initialized');
@@ -451,10 +576,16 @@ document.addEventListener('DOMContentLoaded', async () => {
         }
         const archiveData = await response.json();
 
+        // Update hero stats on all archive pages
+        updateArchiveHeroStats(archiveData);
+
+        // Sort projects chronologically before rendering
+        const sortedProjects = sortProjectsChronologically(archiveData.projects);
+
         if (path.includes('timeline.html')) {
             // Timeline page
             if (archiveData && archiveData.projects) {
-                renderTimeline(archiveData.projects);
+                renderTimeline(sortedProjects);
                 setupModalListeners();
             }
         } else if (path.includes('skills.html')) {
@@ -465,7 +596,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         } else {
             // Default: Projects grid page
             // Set global data and initialize
-            allProjects = archiveData.projects;
+            allProjects = sortedProjects;
             filteredProjects = [...allProjects];
             renderProjects(filteredProjects);
             setupFilterListeners();

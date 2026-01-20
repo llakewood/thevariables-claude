@@ -310,21 +310,21 @@
                 <span class="archive-cta-label">Career Archive</span>
                 <h2 class="archive-cta-title">20 Years of Digital Craftsmanship</h2>
                 <p class="archive-cta-description">
-                    Explore our complete career archive featuring 10 projects, 18 technologies,
+                    Explore our complete career archive featuring projects, technologies,
                     and nearly two decades of software development—from early WordPress platforms
                     to modern web applications.
                 </p>
-                <div class="archive-cta-stats">
+                <div class="archive-cta-stats" style="opacity: 0; transition: opacity 0.3s ease;">
                     <div class="archive-stat">
-                        <span class="archive-stat-number">10</span>
+                        <span class="archive-stat-number">—</span>
                         <span class="archive-stat-label">Projects</span>
                     </div>
                     <div class="archive-stat">
-                        <span class="archive-stat-number">18</span>
+                        <span class="archive-stat-number">—</span>
                         <span class="archive-stat-label">Technologies</span>
                     </div>
                     <div class="archive-stat">
-                        <span class="archive-stat-number">17</span>
+                        <span class="archive-stat-number">—</span>
                         <span class="archive-stat-label">Years</span>
                     </div>
                 </div>
@@ -403,7 +403,7 @@
                 </div>
             </div>
             <div class="contact-form-container">
-                <form class="contact-form" id="contactForm" action="https://api.web3forms.com/submit" method="POST">
+                <form class="contact-form" id="contactForm" action="https://api.web3forms.com/submit" method="POST" novalidate>
                     <!-- Web3Forms Access Key - Injected from config.js -->
                     <input type="hidden" name="access_key" id="web3forms-access-key" value="">
                     <!-- Optional: Redirect to custom success page -->
@@ -411,25 +411,29 @@
                     <!-- Optional: Custom subject line -->
                     <input type="hidden" name="subject" value="New Contact Form Submission from The Variables Co.">
                     <!-- Honeypot Spam Protection -->
-                    <input type="checkbox" name="botcheck" class="hidden" style="display: none;">
+                    <input type="checkbox" name="botcheck" class="hidden" style="display: none;" tabindex="-1" aria-hidden="true">
                     <div class="form-group">
-                        <label for="name">Name</label>
-                        <input type="text" id="name" name="name" required>
+                        <label for="name" class="required">Name</label>
+                        <input type="text" id="name" name="name" required aria-required="true" aria-describedby="name-error">
+                        <span class="form-error" id="name-error" role="alert"></span>
                     </div>
                     <div class="form-group">
-                        <label for="email">Email</label>
-                        <input type="email" id="email" name="email" required>
+                        <label for="email" class="required">Email</label>
+                        <input type="email" id="email" name="email" required aria-required="true" aria-describedby="email-error">
+                        <span class="form-error" id="email-error" role="alert"></span>
                     </div>
                     <div class="form-group">
                         <label for="company">Company</label>
-                        <input type="text" id="company" name="company">
+                        <input type="text" id="company" name="company" aria-describedby="company-hint">
+                        <span class="form-hint" id="company-hint" style="display: none;"></span>
                     </div>
                     <div class="form-group">
-                        <label for="message">Message</label>
-                        <textarea id="message" name="message" rows="6" required></textarea>
+                        <label for="message" class="required">Message</label>
+                        <textarea id="message" name="message" rows="6" required aria-required="true" aria-describedby="message-error"></textarea>
+                        <span class="form-error" id="message-error" role="alert"></span>
                     </div>
-                    <button type="submit" class="form-submit">Send Message</button>
-                    <div id="form-status" style="margin-top: 1rem; display: none;"></div>
+                    <button type="submit" class="form-submit" aria-label="Send contact form message">Send Message</button>
+                    <div id="form-status" style="margin-top: 1rem; display: none;" role="status" aria-live="polite"></div>
                 </form>
             </div>
         </div>

@@ -258,6 +258,84 @@ document.querySelectorAll('.contact-method').forEach(method => {
     });
 });
 
+// Load and display dynamic archive statistics
+async function loadArchiveStats() {
+    const archiveCta = document.querySelector('.archive-cta');
+    if (!archiveCta) return; // Only run on homepage with archive CTA
+
+    try {
+        const response = await fetch('data/archive-data.json');
+        if (!response.ok) {
+            throw new Error('Failed to load archive data');
+        }
+
+        const archiveData = await response.json();
+
+        // Calculate stats
+        const projectCount = archiveData.projects.length;
+
+        // Calculate unique technologies from all projects
+        const allTechnologies = new Set();
+        archiveData.projects.forEach(project => {
+            if (project.technology_stack && Array.isArray(project.technology_stack)) {
+                project.technology_stack.forEach(tech => allTechnologies.add(tech));
+            }
+        });
+        const techCount = allTechnologies.size;
+
+        // Calculate year span (earliest project to current year)
+        const currentYear = new Date().getFullYear();
+        let earliestYear = currentYear;
+        archiveData.projects.forEach(project => {
+            const timelineText = project.timeline;
+            const yearMatch = timelineText.match(/\d{4}/);
+            if (yearMatch) {
+                const year = parseInt(yearMatch[0]);
+                if (year < earliestYear) {
+                    earliestYear = year;
+                }
+            }
+        });
+        const yearSpan = currentYear - earliestYear;
+
+        // Update DOM elements
+        const statNumbers = archiveCta.querySelectorAll('.archive-stat-number');
+        if (statNumbers.length >= 3) {
+            statNumbers[0].textContent = projectCount;
+            statNumbers[1].textContent = techCount;
+            statNumbers[2].textContent = yearSpan;
+        }
+
+        // Update description text
+        const description = archiveCta.querySelector('.archive-cta-description');
+        if (description) {
+            description.textContent = `Explore our complete career archive featuring ${projectCount} projects, ${techCount} technologies, and nearly two decades of software development—from early WordPress platforms to modern web applications.`;
+        }
+
+        // Fade in stats after updating
+        const statsContainer = archiveCta.querySelector('.archive-cta-stats');
+        if (statsContainer) {
+            statsContainer.style.opacity = '1';
+        }
+
+    } catch (error) {
+        console.error('Error loading archive stats:', error);
+        // Keep hardcoded values as fallback and show them anyway
+        const archiveCta = document.querySelector('.archive-cta');
+        const statsContainer = archiveCta?.querySelector('.archive-cta-stats');
+        if (statsContainer) {
+            statsContainer.style.opacity = '1';
+        }
+    }
+}
+
+// Load archive stats when page loads
+if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', loadArchiveStats);
+} else {
+    loadArchiveStats();
+}
+
 // Log a welcome message
 console.log('%c✨ The Variables Co.', 'font-size: 24px; font-weight: bold; color: #1a2332;');
 console.log('%cDigital Strategists creating meaningful change', 'font-size: 14px; color: #ab3414;');

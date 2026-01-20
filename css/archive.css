@@ -11,6 +11,32 @@
  */
 
 /* ============================================
+   ACCESSIBILITY - FOCUS STATES
+   ============================================ */
+
+.project-card:focus-visible,
+.timeline-item:focus-visible,
+.skill-card:focus-visible {
+    outline: 2px solid var(--color-accent-primary);
+    outline-offset: 4px;
+}
+
+/* ============================================
+   ACCESSIBILITY - REDUCED MOTION
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+    .project-card,
+    .timeline-item,
+    .skill-card,
+    .modal-overlay,
+    .modal-content {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+/* ============================================
    ARCHIVE HERO
    ============================================ */
 
@@ -174,22 +200,32 @@
     box-shadow: 0 0 0 3px rgba(47, 99, 100, 0.1);
 }
 
+/* Filter reset button - matches .btn-tertiary from button system */
 .filter-reset {
-    padding: 0.75rem 1.5rem;
+    display: inline-block;
+    padding: var(--space-2) var(--space-4);
     background: var(--color-slate);
-    color: white;
-    border: none;
-    border-radius: 6px;
-    font-size: 1rem;
-    font-weight: 500;
+    color: var(--color-white);
+    border: 2px solid var(--color-slate);
+    border-radius: 8px;
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    font-weight: var(--weight-semibold);
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: var(--transition-fast);
     align-self: flex-end;
+    line-height: 1;
 }
 
 .filter-reset:hover {
     background: var(--color-navy);
+    border-color: var(--color-navy);
     transform: translateY(-2px);
+}
+
+.filter-reset:focus-visible {
+    outline: 2px solid var(--color-slate);
+    outline-offset: 4px;
 }
 
 /* ============================================
@@ -217,15 +253,12 @@
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 12px;
     overflow: hidden;
-    transition: all 0.3s ease;
     cursor: pointer;
     display: flex;
     flex-direction: column;
 }
 
 .project-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
     border-color: var(--color-accent-primary);
 }
 
@@ -315,7 +348,7 @@
 .confidence-fill {
     height: 100%;
     background: linear-gradient(90deg, var(--color-accent-primary), #4ade80);
-    transition: width 0.3s ease;
+    width: var(--confidence, 0%);
 }
 
 .view-details {
@@ -329,11 +362,6 @@
 
 .view-details::after {
     content: '→';
-    transition: transform 0.3s ease;
-}
-
-.project-card:hover .view-details::after {
-    transform: translateX(4px);
 }
 
 /* ============================================
