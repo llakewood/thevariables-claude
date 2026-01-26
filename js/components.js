@@ -240,6 +240,32 @@ class Footer {
         }
 
         footerContainer.innerHTML = this.render();
+
+        // Initialize Google Analytics
+        this.initGoogleAnalytics();
+    }
+
+    /**
+     * Initialize Google Analytics GA4
+     */
+    initGoogleAnalytics() {
+        // Google Analytics measurement ID
+        const measurementId = 'G-496485508';
+
+        // Load gtag.js script
+        const script = document.createElement('script');
+        script.async = true;
+        script.src = `https://www.googletagmanager.com/gtag/js?id=${measurementId}`;
+        document.head.appendChild(script);
+
+        // Initialize dataLayer and gtag function
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', measurementId);
+
+        // Make gtag globally available
+        window.gtag = gtag;
     }
 }
 
