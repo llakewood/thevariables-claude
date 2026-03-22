@@ -402,14 +402,14 @@
                             <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M8 5l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
                         </button>
                     </div>
-                    <div class="day-list" id="day-list" role="listbox" aria-label="Available dates"></div>
+                    <div class="day-list" id="day-list" role="group" aria-label="Available dates"></div>
                 </div>
 
                 <div class="loading-spinner" id="loading">Loading available times...</div>
 
-                <div class="slots-section" id="slots-section" style="display:none;">
+                <div class="slots-section" id="slots-section" style="display:none;" aria-live="polite">
                     <div class="slots-label" id="slots-label"></div>
-                    <div class="slots-grid" id="slots-grid"></div>
+                    <div class="slots-grid" id="slots-grid" role="group" aria-label="Available time slots"></div>
                 </div>
 
                 <div class="booking-error" id="booking-error" role="alert"></div>
@@ -582,7 +582,9 @@
                 el.type = 'button';
                 el.className = 'day-item' + (!hasSlots ? ' no-slots' : '') + (selectedDate === dateStr ? ' selected' : '');
                 el.setAttribute('aria-pressed', selectedDate === dateStr ? 'true' : 'false');
-                el.setAttribute('aria-label', formatDisplay(d) + (!hasSlots ? ' (unavailable)' : ''));
+                const slotCount = hasSlots ? slots.length : 0;
+                const slotInfo = hasSlots ? `, ${slotCount} slot${slotCount !== 1 ? 's' : ''} available` : ', unavailable';
+                el.setAttribute('aria-label', formatDisplay(d) + slotInfo);
                 if (!hasSlots) el.disabled = true;
                 el.innerHTML = `
                     <div class="day-weekday">${d.toLocaleDateString('en-US', { weekday: 'short' })}</div>
@@ -651,9 +653,11 @@
             for (const slot of available) {
                 const el = document.createElement('button');
                 el.type = 'button';
-                el.className = 'slot-item' + (selectedSlot === slot.time ? ' selected' : '');
+                const isSelected = selectedSlot === slot.time;
+                el.className = 'slot-item' + (isSelected ? ' selected' : '');
                 el.textContent = slot.label;
-                el.setAttribute('aria-label', `Book ${slot.label}`);
+                el.setAttribute('aria-label', `${slot.label} timeslot${isSelected ? ', selected' : ''}`);
+                el.setAttribute('aria-pressed', isSelected ? 'true' : 'false');
                 el.addEventListener('click', () => selectSlot(dateStr, slot));
                 slotsGrid.appendChild(el);
             }
