@@ -433,7 +433,7 @@
                     <button type="submit" class="btn-book" id="btn-book">Confirm Booking</button>
                 </form>
 
-                <div class="booking-confirmed" id="booking-confirmed">
+                <div class="booking-confirmed" id="booking-confirmed" role="status">
                     <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
                         <circle cx="24" cy="24" r="22" stroke="currentColor" stroke-width="3"/>
                         <path d="M15 24l6 6 12-12" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
@@ -728,6 +728,8 @@
                 $('slots-section').style.display = 'none';
                 $('booking-form').classList.remove('visible');
                 $('booking-confirmed').classList.add('visible');
+                $('booking-confirmed').setAttribute('tabindex', '-1');
+                $('booking-confirmed').focus();
             } catch (err) {
                 showError(err.message || 'Something went wrong. Please try again.');
                 btn.disabled = false;
