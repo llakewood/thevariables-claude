@@ -114,6 +114,13 @@
             cursor: pointer;
             transition: var(--transition-fast);
             background: var(--color-white);
+            font-family: var(--font-body);
+            color: var(--color-navy);
+        }
+
+        .day-item:focus-visible {
+            outline: 2px solid var(--color-accent-primary);
+            outline-offset: 2px;
         }
 
         .day-item:hover {
@@ -188,6 +195,11 @@
         .slot-item:hover {
             border-color: var(--color-accent-primary);
             color: var(--color-accent-primary);
+        }
+
+        .slot-item:focus-visible {
+            outline: 2px solid var(--color-accent-primary);
+            outline-offset: 2px;
         }
 
         .slot-item.selected {
@@ -566,11 +578,12 @@
                 const slots = generateSlots(dateStr);
                 const hasSlots = slots.length > 0 && !(dow === 0 || dow === 6);
 
-                const el = document.createElement('div');
+                const el = document.createElement('button');
+                el.type = 'button';
                 el.className = 'day-item' + (!hasSlots ? ' no-slots' : '') + (selectedDate === dateStr ? ' selected' : '');
-                el.setAttribute('role', 'option');
-                el.setAttribute('aria-selected', selectedDate === dateStr ? 'true' : 'false');
+                el.setAttribute('aria-pressed', selectedDate === dateStr ? 'true' : 'false');
                 el.setAttribute('aria-label', formatDisplay(d) + (!hasSlots ? ' (unavailable)' : ''));
+                if (!hasSlots) el.disabled = true;
                 el.innerHTML = `
                     <div class="day-weekday">${d.toLocaleDateString('en-US', { weekday: 'short' })}</div>
                     <div class="day-date">${d.getDate()}</div>

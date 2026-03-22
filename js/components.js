@@ -18,6 +18,7 @@ class Header {
      */
     render() {
         return `
+            <a href="#main-content" class="skip-to-content">Skip to content</a>
             <nav class="nav" id="main-nav">
                 <div class="nav-container">
                     <a href="${this.basePath}${this.logoLink}" class="nav-logo">
@@ -73,6 +74,12 @@ class Header {
         }
 
         headerContainer.innerHTML = this.render();
+
+        // Add main-content landmark for skip link
+        const nextContent = headerContainer.nextElementSibling;
+        if (nextContent && !document.getElementById('main-content')) {
+            nextContent.id = 'main-content';
+        }
 
         // Setup mobile menu toggle
         this.setupMobileMenu();

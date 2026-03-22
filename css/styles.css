@@ -89,6 +89,28 @@ select:focus-visible,
     outline-offset: 2px;
 }
 
+/* Skip to content link (accessibility) */
+.skip-to-content {
+    position: absolute;
+    top: -100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--color-accent-primary);
+    color: var(--color-white);
+    padding: 12px 24px;
+    border-radius: 0 0 8px 8px;
+    font-weight: var(--weight-semibold);
+    font-size: var(--text-sm);
+    z-index: 10000;
+    transition: top 0.2s;
+    text-decoration: none;
+}
+
+.skip-to-content:focus {
+    top: 0;
+    outline: none;
+}
+
 /* Respect user's motion preferences (accessibility) */
 @media (prefers-reduced-motion: reduce) {
     *,
