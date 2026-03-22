@@ -336,7 +336,7 @@ function send_confirmation_email(string $to, string $name, string $date, string 
         . "https://thevariables.com\n";
 
     $headers = implode("\r\n", [
-        'From: The Variables Co. <les.lakewood@gmail.com>',
+        'From: The Variables Co. <thevariables@gmail.com>',
         'Reply-To: no-reply@thevariables.com',
         'Content-Type: text/plain; charset=UTF-8',
     ]);
