@@ -94,7 +94,12 @@ function build() {
         console.log('      - All HTML files');
         console.log('      - css/ directory');
         console.log('      - js/ directory');
-        console.log('   3. Test the contact form\n');
+        console.log('      - api/ directory (booking system)');
+        console.log('   3. Test the contact form');
+        console.log('   4. Set up booking system:');
+        console.log('      - Copy api/config.example.php to api/config.php');
+        console.log('      - Add Google service account key to api/service-account.json');
+        console.log('      - Test booking at booking.html\n');
 
     } catch (error) {
         console.error('❌ Build failed:', error.message);

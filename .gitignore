@@ -26,3 +26,7 @@ Thumbs.db
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# Booking API secrets
+api/config.php
+api/service-account.json

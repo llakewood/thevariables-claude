@@ -72,6 +72,7 @@ The build script replaces placeholders like `{{WEB3FORMS_ACCESS_KEY}}` with actu
 - **about.html**: Company mission, values, leadership
 - **services.html**: Detailed service pages with anchor links (#strategy, #development, #support)
 - **work-*.html**: Four case study pages for real projects
+- **booking.html**: Self-service call booking with Google Calendar integration
 - **404.html**, **thank-you.html**: Utility pages
 
 **Career Archive:**
@@ -148,6 +149,7 @@ This is a static site—just upload HTML, CSS, and JS files to any web host.
 - All `.html` files
 - `css/` directory
 - `js/` directory (including the generated `config.js`)
+- `api/` directory (excluding `config.php` and `service-account.json` — configure those on the server directly)
 
 **DO NOT deploy:**
 - `.env` file
@@ -190,12 +192,53 @@ The site uses IntersectionObserver pattern (lines 34-78 in `js/script.js`):
 ### Modifying Colors
 Edit CSS custom properties in `css/styles.css` `:root` block. All colors reference these variables.
 
+## Booking System
+
+### Overview
+Self-hosted booking page at `booking.html` that lets prospects book 20-minute discovery calls. Integrates with Google Calendar via service account (REST API + cURL, no Composer dependencies).
+
+**Hosted on:** DreamHost shared PHP server at `https://thevariables.com/booking.html`
+
+### Files
+- **booking.html** — Frontend booking page (vanilla JS, inline styles, uses site design system)
+- **api/booking.php** — PHP API endpoint (GET for available slots, POST to create booking)
+- **api/config.php** — Config with Google Calendar credentials (gitignored)
+- **api/config.example.php** — Config template with setup instructions
+- **api/service-account.json** — Google service account key file (gitignored)
+
+### Availability Rules
+- Monday: 9:00 AM – 12:00 PM ET **and** 3:30 – 4:15 PM ET
+- Tuesday–Friday: 3:30 – 4:15 PM ET
+- Slot duration: 20 minutes
+- Booking window: 2 weeks ahead
+
+### How It Works
+1. Frontend generates possible time slots client-side based on availability rules
+2. On date selection, fetches `api/booking.php?date=YYYY-MM-DD` to get already-booked slots from Google Calendar
+3. On form submit, POSTs to `api/booking.php` which creates a Google Calendar event (no attendees — service accounts can't invite without Domain-Wide Delegation)
+4. API sends confirmation email to booker via PHP `mail()` with booking details
+5. API uses Google service account JWT auth (no OAuth consent screen needed)
+
+### Setup (one-time)
+1. Create Google Cloud project, enable Calendar API
+2. Create service account, download JSON key to `api/service-account.json`
+3. Share Google Calendar with service account email (give "Make changes to events" permission)
+4. Copy `api/config.example.php` to `api/config.php`, set calendar ID and key path
+5. See `api/config.example.php` for detailed steps
+
+### Security
+- `api/config.php` and `api/service-account.json` are gitignored
+- API validates all inputs server-side (date range, slot validity, email format)
+- CORS restricted to `https://thevariables.com`
+- No database required — Google Calendar is the source of truth for bookings
+
 ## Important Notes
 
 ### Security Considerations
 - Web3Forms access keys are **intentionally public** (domain-restricted, read-only)
 - Never commit `.env` file
 - Form submissions go directly to Web3Forms API (no backend)
+- Booking API credentials (`api/config.php`, `api/service-account.json`) are gitignored
 - See `documentation/SECURITY.md` for details
 
 ### Build Script Behavior

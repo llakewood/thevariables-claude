@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book a Call — The Variables Co.</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700;9..144,900&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        .booking-section {
+            padding: var(--space-12) 0;
+            min-height: 80vh;
+        }
+
+        .booking-container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 0 var(--container-padding);
+        }
+
+        .booking-header {
+            margin-bottom: var(--space-6);
+        }
+
+        .booking-label {
+            font-family: var(--font-body);
+            font-size: var(--text-sm);
+            font-weight: var(--weight-semibold);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--color-accent-primary);
+            margin-bottom: var(--space-2);
+        }
+
+        .booking-title {
+            font-family: var(--font-display);
+            font-size: var(--text-3xl);
+            font-weight: var(--weight-bold);
+            line-height: var(--leading-tight);
+            color: var(--color-navy);
+            margin-bottom: var(--space-2);
+        }
+
+        .booking-subtitle {
+            font-size: var(--text-lg);
+            color: var(--color-gray);
+            line-height: var(--leading-relaxed);
+        }
+
+        .booking-calendar {
+            margin-bottom: var(--space-4);
+        }
+
+        .calendar-nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: var(--space-3);
+        }
+
+        .calendar-nav-label {
+            font-family: var(--font-display);
+            font-size: var(--text-xl);
+            font-weight: var(--weight-semibold);
+            color: var(--color-navy);
+        }
+
+        .calendar-nav button {
+            background: none;
+            border: 2px solid var(--color-light-gray);
+            border-radius: 8px;
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--color-navy);
+            transition: var(--transition-fast);
+        }
+
+        .calendar-nav button:hover {
+            border-color: var(--color-accent-primary);
+            color: var(--color-accent-primary);
+        }
+
+        .calendar-nav button:disabled {
+            opacity: 0.3;
+            cursor: not-allowed;
+        }
+
+        .calendar-nav button:disabled:hover {
+            border-color: var(--color-light-gray);
+            color: var(--color-navy);
+        }
+
+        .day-list {
+            display: flex;
+            gap: var(--space-1);
+            overflow-x: auto;
+            padding-bottom: var(--space-1);
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .day-item {
+            flex: 0 0 auto;
+            width: 72px;
+            padding: var(--space-2) var(--space-1);
+            border: 2px solid var(--color-light-gray);
+            border-radius: 10px;
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition-fast);
+            background: var(--color-white);
+        }
+
+        .day-item:hover {
+            border-color: var(--color-accent-primary);
+        }
+
+        .day-item.selected {
+            background: var(--color-accent-primary);
+            border-color: var(--color-accent-primary);
+            color: var(--color-white);
+        }
+
+        .day-item.no-slots {
+            opacity: 0.35;
+            cursor: not-allowed;
+        }
+
+        .day-item.no-slots:hover {
+            border-color: var(--color-light-gray);
+        }
+
+        .day-weekday {
+            font-size: var(--text-xs);
+            font-weight: var(--weight-semibold);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            margin-bottom: 4px;
+        }
+
+        .day-date {
+            font-family: var(--font-display);
+            font-size: var(--text-xl);
+            font-weight: var(--weight-bold);
+            line-height: 1;
+        }
+
+        .day-month {
+            font-size: var(--text-xs);
+            margin-top: 4px;
+            opacity: 0.7;
+        }
+
+        .slots-section {
+            margin-top: var(--space-4);
+        }
+
+        .slots-label {
+            font-family: var(--font-display);
+            font-size: var(--text-lg);
+            font-weight: var(--weight-semibold);
+            color: var(--color-navy);
+            margin-bottom: var(--space-2);
+        }
+
+        .slots-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: var(--space-1);
+        }
+
+        .slot-item {
+            padding: var(--space-2);
+            border: 2px solid var(--color-light-gray);
+            border-radius: 8px;
+            text-align: center;
+            cursor: pointer;
+            transition: var(--transition-fast);
+            font-weight: var(--weight-medium);
+            background: var(--color-white);
+        }
+
+        .slot-item:hover {
+            border-color: var(--color-accent-primary);
+            color: var(--color-accent-primary);
+        }
+
+        .slot-item.selected {
+            background: var(--color-accent-primary);
+            border-color: var(--color-accent-primary);
+            color: var(--color-white);
+        }
+
+        .slot-empty {
+            color: var(--color-gray);
+            font-style: italic;
+            padding: var(--space-4);
+            text-align: center;
+        }
+
+        .booking-form {
+            margin-top: var(--space-6);
+            padding-top: var(--space-4);
+            border-top: 2px solid var(--color-light-gray);
+            display: none;
+        }
+
+        .booking-form.visible {
+            display: block;
+        }
+
+        .booking-form h3 {
+            font-family: var(--font-display);
+            font-size: var(--text-xl);
+            font-weight: var(--weight-semibold);
+            color: var(--color-navy);
+            margin-bottom: var(--space-3);
+        }
+
+        .form-group {
+            margin-bottom: var(--space-2);
+        }
+
+        .form-group label {
+            display: block;
+            font-size: var(--text-sm);
+            font-weight: var(--weight-semibold);
+            color: var(--color-navy);
+            margin-bottom: 6px;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid var(--color-light-gray);
+            border-radius: 8px;
+            font-family: var(--font-body);
+            font-size: var(--text-base);
+            color: var(--color-navy);
+            transition: var(--transition-fast);
+            background: var(--color-white);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: var(--color-accent-primary);
+            box-shadow: 0 0 0 3px rgba(47, 99, 100, 0.15);
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 80px;
+        }
+
+        .booking-summary {
+            background: var(--color-cream);
+            border-radius: 10px;
+            padding: var(--space-3);
+            margin-bottom: var(--space-3);
+            font-size: var(--text-sm);
+        }
+
+        .booking-summary strong {
+            display: block;
+            font-size: var(--text-base);
+            margin-bottom: 4px;
+        }
+
+        .btn-book {
+            display: inline-block;
+            padding: 14px 32px;
+            background: var(--color-accent-primary);
+            color: var(--color-white);
+            border: none;
+            border-radius: 8px;
+            font-family: var(--font-body);
+            font-size: var(--text-base);
+            font-weight: var(--weight-semibold);
+            cursor: pointer;
+            transition: var(--transition-fast);
+            width: 100%;
+            text-align: center;
+        }
+
+        .btn-book:hover {
+            background: var(--color-navy);
+        }
+
+        .btn-book:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .booking-confirmed {
+            text-align: center;
+            padding: var(--space-6) 0;
+            display: none;
+        }
+
+        .booking-confirmed.visible {
+            display: block;
+        }
+
+        .booking-confirmed svg {
+            color: var(--color-accent-primary);
+            margin-bottom: var(--space-2);
+        }
+
+        .booking-confirmed h3 {
+            font-family: var(--font-display);
+            font-size: var(--text-2xl);
+            font-weight: var(--weight-bold);
+            color: var(--color-navy);
+            margin-bottom: var(--space-1);
+        }
+
+        .booking-confirmed p {
+            color: var(--color-gray);
+            font-size: var(--text-lg);
+        }
+
+        .booking-error {
+            background: #fef2f2;
+            border: 1px solid #fecaca;
+            color: #991b1b;
+            padding: var(--space-2);
+            border-radius: 8px;
+            margin-bottom: var(--space-2);
+            display: none;
+            font-size: var(--text-sm);
+        }
+
+        .booking-error.visible {
+            display: block;
+        }
+
+        .loading-spinner {
+            display: none;
+            text-align: center;
+            padding: var(--space-4);
+            color: var(--color-gray);
+        }
+
+        .loading-spinner.visible {
+            display: block;
+        }
+
+        @media (max-width: 768px) {
+            .booking-title {
+                font-size: var(--text-2xl);
+            }
+
+            .day-item {
+                width: 64px;
+            }
+
+            .slots-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+    </style>
+    <script src="js/components.js" defer></script>
+</head>
+<body data-page="booking" data-base-path="">
+    <div id="header-container"></div>
+
+    <section class="booking-section">
+        <div class="booking-container">
+            <div class="booking-header">
+                <div class="booking-label">Book a Call</div>
+                <h1 class="booking-title">Let's find a time to talk</h1>
+                <p class="booking-subtitle">Pick a day and time that works for you. Calls are 20 minutes — enough to understand your project and outline next steps.</p>
+            </div>
+
+            <div id="booking-app">
+                <div class="booking-calendar">
+                    <div class="calendar-nav">
+                        <button id="cal-prev" aria-label="Previous week" disabled>
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M12 15l-5-5 5-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </button>
+                        <span class="calendar-nav-label" id="cal-label"></span>
+                        <button id="cal-next" aria-label="Next week">
+                            <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M8 5l5 5-5 5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+                        </button>
+                    </div>
+                    <div class="day-list" id="day-list" role="listbox" aria-label="Available dates"></div>
+                </div>
+
+                <div class="loading-spinner" id="loading">Loading available times...</div>
+
+                <div class="slots-section" id="slots-section" style="display:none;">
+                    <div class="slots-label" id="slots-label"></div>
+                    <div class="slots-grid" id="slots-grid"></div>
+                </div>
+
+                <div class="booking-error" id="booking-error" role="alert"></div>
+
+                <form class="booking-form" id="booking-form" novalidate>
+                    <h3>Your Details</h3>
+                    <div class="booking-summary" id="booking-summary"></div>
+                    <div class="form-group">
+                        <label for="booking-name">Name</label>
+                        <input type="text" id="booking-name" name="name" required autocomplete="name">
+                    </div>
+                    <div class="form-group">
+                        <label for="booking-email">Email</label>
+                        <input type="email" id="booking-email" name="email" required autocomplete="email">
+                    </div>
+                    <div class="form-group">
+                        <label for="booking-notes">What's the project about? (optional)</label>
+                        <textarea id="booking-notes" name="notes" rows="3" placeholder="A sentence or two is great"></textarea>
+                    </div>
+                    <button type="submit" class="btn-book" id="btn-book">Confirm Booking</button>
+                </form>
+
+                <div class="booking-confirmed" id="booking-confirmed">
+                    <svg width="48" height="48" viewBox="0 0 48 48" fill="none">
+                        <circle cx="24" cy="24" r="22" stroke="currentColor" stroke-width="3"/>
+                        <path d="M15 24l6 6 12-12" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                    <h3>You're booked</h3>
+                    <p id="confirmed-details"></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div id="footer-container"></div>
+
+    <script>
+    (function() {
+        'use strict';
+
+        const API_URL = 'api/booking.php';
+        const SLOT_DURATION = 20;
+        const TIMEZONE = 'America/Toronto';
+        const WEEKS_AHEAD = 2;
+
+        // Availability rules: day of week (0=Sun) => array of {start, end} in HH:MM
+        const AVAILABILITY = {
+            1: [{ start: '09:00', end: '12:00' }, { start: '15:30', end: '16:15' }], // Monday
+            2: [{ start: '15:30', end: '16:15' }], // Tuesday
+            3: [{ start: '15:30', end: '16:15' }], // Wednesday
+            4: [{ start: '15:30', end: '16:15' }], // Thursday
+            5: [{ start: '15:30', end: '16:15' }], // Friday
+        };
+
+        let currentWeekStart = null;
+        let selectedDate = null;
+        let selectedSlot = null;
+        let bookedSlots = {};
+
+        const $ = id => document.getElementById(id);
+
+        function getMonday(d) {
+            const date = new Date(d);
+            const day = date.getDay();
+            const diff = date.getDate() - day + (day === 0 ? -6 : 1);
+            date.setDate(diff);
+            date.setHours(0, 0, 0, 0);
+            return date;
+        }
+
+        function formatDate(d) {
+            return d.toLocaleDateString('en-CA'); // YYYY-MM-DD
+        }
+
+        function formatDisplay(d) {
+            return d.toLocaleDateString('en-US', {
+                weekday: 'long',
+                month: 'long',
+                day: 'numeric',
+                timeZone: TIMEZONE
+            });
+        }
+
+        function formatTime(hours, minutes) {
+            const h = hours % 12 || 12;
+            const ampm = hours < 12 ? 'AM' : 'PM';
+            return `${h}:${String(minutes).padStart(2, '0')} ${ampm}`;
+        }
+
+        function generateSlots(dateStr) {
+            const date = new Date(dateStr + 'T00:00:00');
+            const dow = date.getDay();
+            const windows = AVAILABILITY[dow];
+            if (!windows) return [];
+
+            const slots = [];
+            for (const w of windows) {
+                const [sh, sm] = w.start.split(':').map(Number);
+                const [eh, em] = w.end.split(':').map(Number);
+                const startMin = sh * 60 + sm;
+                const endMin = eh * 60 + em;
+
+                for (let m = startMin; m + SLOT_DURATION <= endMin; m += SLOT_DURATION) {
+                    const h = Math.floor(m / 60);
+                    const min = m % 60;
+                    slots.push({
+                        time: `${String(h).padStart(2, '0')}:${String(min).padStart(2, '0')}`,
+                        label: formatTime(h, min)
+                    });
+                }
+            }
+            return slots;
+        }
+
+        function isToday(d) {
+            const now = new Date();
+            return d.getFullYear() === now.getFullYear() &&
+                   d.getMonth() === now.getMonth() &&
+                   d.getDate() === now.getDate();
+        }
+
+        function isPast(dateStr, time) {
+            const now = new Date();
+            const [h, m] = time.split(':').map(Number);
+            const slotDate = new Date(dateStr + 'T00:00:00');
+            slotDate.setHours(h, m, 0, 0);
+            return slotDate <= now;
+        }
+
+        function renderWeek() {
+            const dayList = $('day-list');
+            const today = new Date();
+            today.setHours(0, 0, 0, 0);
+
+            const maxDate = new Date(today);
+            maxDate.setDate(maxDate.getDate() + WEEKS_AHEAD * 7);
+
+            const thisMonday = getMonday(today);
+            const weekEnd = new Date(currentWeekStart);
+            weekEnd.setDate(weekEnd.getDate() + 6);
+
+            // Update nav label
+            const startMonth = currentWeekStart.toLocaleDateString('en-US', { month: 'short', timeZone: TIMEZONE });
+            const endMonth = weekEnd.toLocaleDateString('en-US', { month: 'short', timeZone: TIMEZONE });
+            const label = startMonth === endMonth
+                ? `${startMonth} ${currentWeekStart.getDate()} – ${weekEnd.getDate()}`
+                : `${startMonth} ${currentWeekStart.getDate()} – ${endMonth} ${weekEnd.getDate()}`;
+            $('cal-label').textContent = label;
+
+            // Nav button states
+            $('cal-prev').disabled = currentWeekStart <= thisMonday;
+            const nextWeekStart = new Date(currentWeekStart);
+            nextWeekStart.setDate(nextWeekStart.getDate() + 7);
+            $('cal-next').disabled = nextWeekStart >= maxDate;
+
+            // Render days
+            dayList.innerHTML = '';
+            for (let i = 0; i < 7; i++) {
+                const d = new Date(currentWeekStart);
+                d.setDate(d.getDate() + i);
+
+                if (d < today || d >= maxDate) continue;
+
+                const dateStr = formatDate(d);
+                const dow = d.getDay();
+                const slots = generateSlots(dateStr);
+                const hasSlots = slots.length > 0 && !(dow === 0 || dow === 6);
+
+                const el = document.createElement('div');
+                el.className = 'day-item' + (!hasSlots ? ' no-slots' : '') + (selectedDate === dateStr ? ' selected' : '');
+                el.setAttribute('role', 'option');
+                el.setAttribute('aria-selected', selectedDate === dateStr ? 'true' : 'false');
+                el.setAttribute('aria-label', formatDisplay(d) + (!hasSlots ? ' (unavailable)' : ''));
+                el.innerHTML = `
+                    <div class="day-weekday">${d.toLocaleDateString('en-US', { weekday: 'short' })}</div>
+                    <div class="day-date">${d.getDate()}</div>
+                    <div class="day-month">${d.toLocaleDateString('en-US', { month: 'short' })}</div>
+                `;
+
+                if (hasSlots) {
+                    el.addEventListener('click', () => selectDate(dateStr));
+                }
+
+                dayList.appendChild(el);
+            }
+        }
+
+        function selectDate(dateStr) {
+            selectedDate = dateStr;
+            selectedSlot = null;
+            $('booking-form').classList.remove('visible');
+            renderWeek();
+            fetchSlots(dateStr);
+        }
+
+        async function fetchSlots(dateStr) {
+            $('loading').classList.add('visible');
+            $('slots-section').style.display = 'none';
+            $('booking-error').classList.remove('visible');
+
+            try {
+                const res = await fetch(`${API_URL}?date=${dateStr}`);
+                const data = await res.json();
+
+                if (!data.success) throw new Error(data.error || 'Failed to load slots');
+
+                bookedSlots[dateStr] = data.booked || [];
+                renderSlots(dateStr);
+            } catch (err) {
+                // If API is not set up yet, fall back to client-side only
+                bookedSlots[dateStr] = [];
+                renderSlots(dateStr);
+            } finally {
+                $('loading').classList.remove('visible');
+            }
+        }
+
+        function renderSlots(dateStr) {
+            const allSlots = generateSlots(dateStr);
+            const booked = bookedSlots[dateStr] || [];
+            const slotsGrid = $('slots-grid');
+            const d = new Date(dateStr + 'T00:00:00');
+
+            $('slots-label').textContent = `Available times for ${formatDisplay(d)}`;
+            $('slots-section').style.display = 'block';
+
+            const available = allSlots.filter(s => {
+                if (isPast(dateStr, s.time)) return false;
+                return !booked.includes(s.time);
+            });
+
+            if (available.length === 0) {
+                slotsGrid.innerHTML = '<div class="slot-empty">No available times this day</div>';
+                return;
+            }
+
+            slotsGrid.innerHTML = '';
+            for (const slot of available) {
+                const el = document.createElement('button');
+                el.type = 'button';
+                el.className = 'slot-item' + (selectedSlot === slot.time ? ' selected' : '');
+                el.textContent = slot.label;
+                el.setAttribute('aria-label', `Book ${slot.label}`);
+                el.addEventListener('click', () => selectSlot(dateStr, slot));
+                slotsGrid.appendChild(el);
+            }
+        }
+
+        function selectSlot(dateStr, slot) {
+            selectedSlot = slot.time;
+            renderSlots(dateStr);
+
+            const d = new Date(dateStr + 'T00:00:00');
+            const [h, m] = slot.time.split(':').map(Number);
+            const endM = h * 60 + m + SLOT_DURATION;
+            const endLabel = formatTime(Math.floor(endM / 60), endM % 60);
+
+            $('booking-summary').innerHTML = `
+                <strong>${formatDisplay(d)}</strong>
+                ${slot.label} – ${endLabel} ET · 20 minutes
+            `;
+
+            $('booking-form').classList.add('visible');
+            $('booking-name').focus();
+        }
+
+        async function handleSubmit(e) {
+            e.preventDefault();
+            const name = $('booking-name').value.trim();
+            const email = $('booking-email').value.trim();
+            const notes = $('booking-notes').value.trim();
+
+            if (!name || !email) {
+                showError('Please fill in your name and email.');
+                return;
+            }
+            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+                showError('Please enter a valid email address.');
+                return;
+            }
+
+            const btn = $('btn-book');
+            btn.disabled = true;
+            btn.textContent = 'Booking...';
+            $('booking-error').classList.remove('visible');
+
+            try {
+                const res = await fetch(API_URL, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({
+                        date: selectedDate,
+                        time: selectedSlot,
+                        name,
+                        email,
+                        notes
+                    })
+                });
+
+                const data = await res.json();
+                if (!data.success) throw new Error(data.error || 'Booking failed');
+
+                // Show confirmation
+                const d = new Date(selectedDate + 'T00:00:00');
+                const [h, m] = selectedSlot.split(':').map(Number);
+                $('confirmed-details').textContent = `${formatDisplay(d)} at ${formatTime(h, m)} ET`;
+
+                $('booking-app').querySelector('.booking-calendar').style.display = 'none';
+                $('slots-section').style.display = 'none';
+                $('booking-form').classList.remove('visible');
+                $('booking-confirmed').classList.add('visible');
+            } catch (err) {
+                showError(err.message || 'Something went wrong. Please try again.');
+                btn.disabled = false;
+                btn.textContent = 'Confirm Booking';
+            }
+        }
+
+        function showError(msg) {
+            const el = $('booking-error');
+            el.textContent = msg;
+            el.classList.add('visible');
+        }
+
+        // Init
+        const today = new Date();
+        currentWeekStart = getMonday(today);
+        renderWeek();
+
+        $('cal-prev').addEventListener('click', () => {
+            currentWeekStart.setDate(currentWeekStart.getDate() - 7);
+            selectedDate = null;
+            selectedSlot = null;
+            $('slots-section').style.display = 'none';
+            $('booking-form').classList.remove('visible');
+            renderWeek();
+        });
+
+        $('cal-next').addEventListener('click', () => {
+            currentWeekStart.setDate(currentWeekStart.getDate() + 7);
+            selectedDate = null;
+            selectedSlot = null;
+            $('slots-section').style.display = 'none';
+            $('booking-form').classList.remove('visible');
+            renderWeek();
+        });
+
+        $('booking-form').addEventListener('submit', handleSubmit);
+    })();
+    </script>
+</body>
+</html>
