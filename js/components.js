@@ -269,7 +269,7 @@ class Footer {
      */
     initGoogleAnalytics() {
         // Google Analytics measurement ID
-        const measurementId = 'G-496485508';
+        const measurementId = 'G-3VX773NGMD';
 
         // Load gtag.js script
         const script = document.createElement('script');
