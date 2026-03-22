@@ -75,10 +75,22 @@ class Header {
 
         headerContainer.innerHTML = this.render();
 
-        // Add main-content landmark for skip link
-        const nextContent = headerContainer.nextElementSibling;
-        if (nextContent && !document.getElementById('main-content')) {
-            nextContent.id = 'main-content';
+        // Ensure a <main> landmark exists for skip link and accessibility
+        const existingMain = document.querySelector('main');
+        if (existingMain) {
+            existingMain.id = 'main-content';
+        } else {
+            const main = document.createElement('main');
+            main.id = 'main-content';
+            const footer = document.getElementById('footer-container');
+            // Move all siblings between header and footer into <main>
+            let node = headerContainer.nextSibling;
+            while (node && node !== footer) {
+                const next = node.nextSibling;
+                main.appendChild(node);
+                node = next;
+            }
+            headerContainer.parentNode.insertBefore(main, footer);
         }
 
         // Setup mobile menu toggle
@@ -192,7 +204,7 @@ class Footer {
 
                         <div class="footer-links">
                             <div class="footer-section">
-                                <h4>Company</h4>
+                                <h2>Company</h2>
                                 <ul>
                                     <li><a href="${this.basePath}about.html">About</a></li>
                                     <li><a href="${this.basePath}services.html">Services</a></li>
@@ -202,7 +214,7 @@ class Footer {
                             </div>
 
                             <div class="footer-section">
-                                <h4>Archive</h4>
+                                <h2>Archive</h2>
                                 <ul>
                                     <li><a href="${this.basePath}archive/index.html">Projects</a></li>
                                     <li><a href="${this.basePath}archive/timeline.html">Timeline</a></li>
@@ -211,7 +223,7 @@ class Footer {
                             </div>
 
                             <div class="footer-section">
-                                <h4>Connect</h4>
+                                <h2>Connect</h2>
                                 <ul>
                                     <li><a href="${this.basePath}index.html#contact">Contact</a></li>
                                     <li><a href="https://www.linkedin.com/in/lakewood/" target="_blank" rel="noopener">LinkedIn</a></li>
