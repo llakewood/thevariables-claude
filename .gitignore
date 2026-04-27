@@ -30,3 +30,6 @@ yarn-error.log*
 # Booking API secrets
 api/config.php
 api/service-account.json
+
+# Job hunt (private, not for deployment)
+job-hunt/
